@@ -1,0 +1,6 @@
+started to learn about reactjs
+
+installed node -> created react app using "npx create-react-app learn_adminpanel --use-npm" 9 - 9:30
+learnt basic js -> 10 - 1
+creating multiplication table -> 1 - 1:40
+using onClick and useState hook -> 3:20 - 4:50 

@@ -1,0 +1,2 @@
+11:00 - 3:00 creating a card that dynamically responds tto state changes
+3:50 - 7:00 creating card site

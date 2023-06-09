@@ -1,0 +1,38 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 180px;
+  height: 280px;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-left: 120px ;
+  background-color: hsl(240, 52%, 72%);
+  border-style: solid;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(122, 229, 248, 0.6);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+  width:170px;
+  height:200px;
+  margin-top: 3px;
+  border-style: solid;
+}
+
+.txt{
+  margin-top: 20px;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.outerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

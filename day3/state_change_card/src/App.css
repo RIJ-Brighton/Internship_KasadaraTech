@@ -1,0 +1,130 @@
+@property --degree {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 10deg;
+ }
+ 
+ * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+ }
+
+ .App {
+  height:500px;
+  width: 500px;
+  margin-top:200px;
+  padding: 2vw;
+  position: relative;
+  background-color: hsl(210, 30%, 10%);
+  font-size: 15px;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+ }
+ .App::before {
+  content: "";
+  position: absolute;
+  width: 102%;
+  height: 102%;
+  top: -1%;
+  left: -1%;
+  background: linear-gradient(
+   var(--degree),
+   hsl(60, 100%, 60%) 20%,
+   hsl(120, 100%, 60%) 40%,
+   hsl(180, 100%, 60%) 60%,
+   hsl(240, 100%, 60%) 80%,
+   hsl(300, 100%, 60%) 100%
+  );
+  border-radius: inherit;
+  z-index: -1;
+  animation: spin 3s infinite ease-in-out;
+  will-change: contents;
+ }
+ .App::after {
+  content: "";
+  position: absolute;
+  width: 105%;
+  height: 105%;
+  top: -1%;
+  left: -1%;
+  background: linear-gradient(
+   var(--degree),
+   hsl(60, 100%, 60%) 20%,
+   hsl(120, 100%, 60%) 40%,
+   hsl(180, 100%, 60%) 60%,
+   hsl(240, 100%, 60%) 80%,
+   hsl(300, 100%, 60%) 100%
+  );
+  border-radius: inherit;
+  filter: blur(20px);
+  z-index: -2;
+  animation: spin 3s infinite ease-in-out;
+  will-change: contents;
+ }
+ 
+ .card:hover .fakeBtn{
+     opacity: 1;
+ }
+ .card:hover .text{
+     opacity: 0;
+ }
+ 
+ .text{
+     color: hsl(41, 100%, 75%);
+     opacity: 1;
+     transition: all 0.5s ease-in ;
+     transform-origin: right;
+     will-change: contents;
+ }
+ .fakeBtn{
+     place-self: center;
+     padding: 5px 25px;
+     background-color: hsl(273, 100%, 87%);
+     color: hsl(210, 30%, 10%);
+     font-size: 16px;
+     text-decoration: none;
+     border-radius: 10px;
+     opacity: 0;
+     transition: all 0.5s ease ;
+     transform-origin: left;
+     will-change: contents;
+ }
+ 
+ @keyframes spin {
+  0% {
+   --degree: 1deg;
+  }
+  100% {
+   --degree: 360deg;
+  }
+ }
+
+ .Title{
+  margin-bottom: 20px;
+ }
+
+ .btn {
+  font-family: "Lucida Console", "Courier New", monospace;
+  height: 40px;
+  width: 80px;
+  color:rgb(14, 121, 203);
+  border-color:rgb(14, 121, 203);
+  box-shadow: 0 0 5px 5px rgb(14, 121, 203) inset, 0 0 0 0 rgb(14, 121, 203);
+  transition: all 150ms ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 0 5px 0 rgb(14, 121, 203) inset, 0 0 5px 4px rgb(14, 121, 203);
+  }
+}
+
+#inputtField{
+  font-family: "Lucida Console", "Courier New", monospace;
+  height: 40px;
+  width: 200px;
+  background-color: black;
+  color: white;
+  border-color: white;
+  border-style: solid;
+}

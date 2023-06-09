@@ -1,0 +1,10 @@
+10:00 - 2:20 {
+	React DeepDive - VDOM , Diffing Algo ,renderer
+	Password Saving and sessions
+	JS classes, functions
+}
+
+3:40 - 5:30{
+	closures
+	call, apply, bind
+}
