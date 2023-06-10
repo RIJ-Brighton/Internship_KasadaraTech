@@ -1,6 +1,6 @@
-import './loggedin.css';
+import './LogSuccess.css';
 
-export default function loggedin() {
+export default function LogSuccess() {
 
   return (
       <div className="login">

@@ -2,7 +2,11 @@ import './Login.css';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate } from 'react-router-dom';
+
 export default function Login() {
+
+  const nav = useNavigate();
 
   const schema = yup.object().shape({
     Email : yup.string().email().required(),
@@ -14,6 +18,7 @@ export default function Login() {
   });
 
   const onSub = (data) => {
+    nav('/LogSuccess');
     console.log(data);
   }
 
@@ -30,7 +35,7 @@ export default function Login() {
         {(errors.Password?.message) && 'Enter a valid password' }
       </span>
       <br/>
-      <input type="submit" className="form-button" value="Log in"/> {/* redirect pending */}
+      <input type="submit" className="form-button" value="Log in"/> {/* redirect pending signup , localstorage , home display*/}
       <div className="box1"></div>
       <div className="box2"></div>
     </form>
