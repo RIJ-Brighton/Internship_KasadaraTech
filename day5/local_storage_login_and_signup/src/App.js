@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 
 export default function App() {
   
+  const [ usernameError ,setUsernameError ] = useState(false);
+  const [ passwordError, setpasswordError ] = useState(false);
   const [userName , setUserName] = useState('');
   const [signedUp , setSignedUp] = useState('');
   const [loggedIn , setLoggedIn] = useState(false);
@@ -37,12 +39,16 @@ export default function App() {
         console.log("loggedin");
         setLoggedIn(true);
         setUserName(data.username);
+        setpasswordError(false);
+        setUsernameError(false);
       }
       else{
         console.log('Invalid Passowrd');
+        setpasswordError(true);
       }
     }
     else{
+      setUsernameError(true);
       console.log('Account Not Found');
     }
   }
@@ -54,9 +60,9 @@ export default function App() {
             
             <form action="#" onSubmit={signUpHandleSubmit(signUpClick)}>
               <h1>Create Account</h1><br/>
-              <input type="text" placeholder="Username" {...signUpRegister('username')} required/>
-              <input type="email" placeholder="Email" {...signUpRegister('email')} required/>
-              <input type="password" placeholder="Password" {...signUpRegister('password')} required/>
+              <input type="text" placeholder="Username" {...signUpRegister('username')} style={ {border: 'white'} }required/>
+              <input type="email" placeholder="Email" {...signUpRegister('email')} style={ {border: 'white'} } required/>
+              <input type="password" placeholder="Password" {...signUpRegister('password')} style={ {border: 'white'} } required/>
               <span>{signedUp}</span>
               <button>Sign Up</button>
             </form>
@@ -66,8 +72,8 @@ export default function App() {
           
             <form action="#" onSubmit={loginHandleSubmit(logInClick)} >
               <h1>Log in</h1><br/>
-              <input type="text" placeholder="Username" {...loginRegister('username')} required/>
-              <input type="password" placeholder="Password" {...loginRegister('password')} required/>
+              <input type="text" placeholder="Username" {...loginRegister('username')} style={ usernameError?{borderColor:'red'}:{border:'white'} } required/>
+              <input type="password" placeholder="Password" {...loginRegister('password')} style={ passwordError?{borderColor:'red'}:{border:'white'} } required/>
               <button>Log In</button>
             </form>
 
