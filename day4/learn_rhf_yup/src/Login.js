@@ -35,7 +35,7 @@ export default function Login() {
         {(errors.Password?.message) && 'Enter a valid password' }
       </span>
       <br/>
-      <input type="submit" className="form-button" value="Log in"/> {/* redirect pending signup , localstorage , home display*/}
+      <input type="submit" className="form-button" value="Log in"/>
       <div className="box1"></div>
       <div className="box2"></div>
     </form>
