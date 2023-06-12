@@ -76,7 +76,7 @@ input {
 .container {
 	background-color: #fff;
 	border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
 	width: 768px;
@@ -193,3 +193,21 @@ input {
 .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
+
+.password-toggle {
+	position: absolute;
+	top: 58%;
+	right: 65px;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 1;
+  }
+
+.password-toggle-signup {
+	position: absolute;
+	top: 63%;
+	right: 65px;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 1;
+  }
