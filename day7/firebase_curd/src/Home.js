@@ -7,6 +7,8 @@ export default function Home({ gmail }) {
 
   const username = gmail.split('@')[0];
   const profile = username.charAt(0).toUpperCase();
+
+  const src = localStorage.getItem('profile');
   
   return (
     <>
@@ -15,14 +17,14 @@ export default function Home({ gmail }) {
           <h2>Hello, {username}</h2>
         </div>
         <div className="top-right">
-        <div className="profile">{profile}</div>
+        {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }
           <button className="form-button" onClick={() => signOut(auth)}>
             Log Out
           </button>
         </div>
       </div>
       <button className="Create-post">Create Post</button>
-      <div className='Posts'>
+      <div className='Posts'> 
         <Card userName={username} title={'Test Title'} message={'Test Message'} />
       </div>
     </>
