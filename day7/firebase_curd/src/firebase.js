@@ -21,6 +21,6 @@ export const signInWithGoogle = () => {
     console.log('loggedin');
     localStorage.setItem('profile' , res.user.photoURL);
   }).catch((error) => {
-    console.log('google signin error');
+    console.log('google signin error',error);
   });
 };
