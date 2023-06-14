@@ -80,6 +80,7 @@ export default function App() {
   return (
     <>{ AuthStateResponse?.email ? <Home gmail={AuthStateResponse.email} /> :
     <div className="Body">
+      <ToastContainer />
         <div className="container" id="container" ref={container}>
           <div className="form-container sign-up-container">
             <form action='#' onSubmit={signUpClick}>
@@ -92,7 +93,7 @@ export default function App() {
               } required/>
               <FontAwesomeIcon className="password-toggle-signup" icon={!showPassword ? faEyeSlash : faEye} onClick={toggleEye}/>
               <button className='signup-button' >Sign Up</button>
-              <ToastContainer />
+              <FontAwesomeIcon className='google' icon={faGoogle} onClick={signInWithGoogle} />
             </form>
           
           </div>
@@ -109,7 +110,6 @@ export default function App() {
               <FontAwesomeIcon className="password-toggle" icon={!showPassword ? faEyeSlash : faEye} onClick={toggleEye}/>
               <button className='login-button'>Log In</button>
               <FontAwesomeIcon className='google' icon={faGoogle} onClick={signInWithGoogle} />
-              <ToastContainer />
             </form>
           </div>
           <div className="overlay-container">

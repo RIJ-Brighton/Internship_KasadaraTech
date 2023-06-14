@@ -224,15 +224,16 @@ input {
   }
 
 .google{
-	margin-top: -30px;
+	margin-top: -25px;
 	margin-left: 170px;
 }
 
 .login-button{
 	margin-top: 10px;
-	margin-left: -40px;
+	margin-left: -35px;
 }
 
 .signup-button{
 	margin-top: 10px;
+	margin-left: -40px;
 }
