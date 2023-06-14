@@ -18,7 +18,10 @@ export default function Home({ gmail }) {
         </div>
         <div className="top-right">
         {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }
-          <button className="form-button" onClick={() => signOut(auth)}>
+          <button className="form-button" onClick={() => {
+            signOut(auth);
+            localStorage.clear();
+          }}>
             Log Out
           </button>
         </div>

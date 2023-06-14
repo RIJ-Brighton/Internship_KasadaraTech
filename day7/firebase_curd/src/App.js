@@ -91,7 +91,7 @@ export default function App() {
                 setSignUpPassword(e.target.value);}
               } required/>
               <FontAwesomeIcon className="password-toggle-signup" icon={!showPassword ? faEyeSlash : faEye} onClick={toggleEye}/>
-              <button>Sign Up</button>
+              <button className='signup-button' >Sign Up</button>
               <ToastContainer />
             </form>
           

@@ -207,7 +207,7 @@ input {
 
 .password-toggle {
 	position: absolute;
-	top: 57%;
+	top: 58%;
 	right: 65px;
 	transform: translateY(-50%);
 	cursor: pointer;
@@ -225,10 +225,14 @@ input {
 
 .google{
 	margin-top: -30px;
-	margin-left: 130px;
+	margin-left: 170px;
 }
 
 .login-button{
 	margin-top: 10px;
-	margin-left: 60px;
+	margin-left: -40px;
+}
+
+.signup-button{
+	margin-top: 10px;
 }
