@@ -1,7 +1,8 @@
 import './App.css';
 import { signInWithEmailAndPassword , createUserWithEmailAndPassword , onAuthStateChanged } from 'firebase/auth';
-import { auth } from './firebase';
+import { auth , signInWithGoogle } from './firebase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faEye , faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useRef, useState , useEffect } from 'react';
 import { toast , ToastContainer } from 'react-toastify';
@@ -106,10 +107,10 @@ export default function App() {
                 setLogInPassword(e.target.value);}
               } required/>
               <FontAwesomeIcon className="password-toggle" icon={!showPassword ? faEyeSlash : faEye} onClick={toggleEye}/>
-              <button>Log In</button>
-              
+              <button className='login-button'>Log In</button>
+              <FontAwesomeIcon className='google' icon={faGoogle} onClick={signInWithGoogle} />
+              <ToastContainer />
             </form>
-            <ToastContainer />
           </div>
           <div className="overlay-container">
             <div className="overlay">

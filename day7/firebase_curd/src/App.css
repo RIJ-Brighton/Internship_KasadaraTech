@@ -222,3 +222,13 @@ input {
 	cursor: pointer;
 	z-index: 1;
   }
+
+.google{
+	margin-top: -30px;
+	margin-left: 130px;
+}
+
+.login-button{
+	margin-top: 10px;
+	margin-left: 60px;
+}
