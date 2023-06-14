@@ -1,0 +1,62 @@
+.home {
+	position: relative;
+	padding: 40px;
+	background-color: #fff;
+	color: black;
+	font-family: 'Roboto', sans-serif;
+}
+
+.top-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px;
+  }
+  
+.top-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	margin-top: 5px;
+}
+
+.profile {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #c9c9c9;
+	text-align: center;
+	line-height: 40px;
+	font-weight: bold; 
+	margin-right: 20px;
+}
+
+.profile:hover{
+	background-color: rgb(42, 42, 42);
+	color: aliceblue;
+}
+
+.home h1 {
+	margin: 0 0 20px;
+	font-size: 40px;
+}
+
+button {
+	margin: 0 auto;
+	padding: 15px 30px;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #fff;
+	background-color: rgba(0, 217, 255, 0.8);
+	border: 0;
+	border-radius: 10px;
+	outline: none;
+	cursor: pointer;
+	transition: .3s ease-in-out;
+}
+button:hover {
+	background-color: rgb(29, 194, 200);
+	box-shadow: 5px 5px 5px rgba(123, 215, 220, 0.2);
+}
