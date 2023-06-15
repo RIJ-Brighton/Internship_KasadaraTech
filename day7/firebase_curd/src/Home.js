@@ -13,7 +13,7 @@ export default function Home({ gmail }) {
 
   const [ showPostMenu , setShowPostMenu ] = useState(false);
 
-  //do something about reading posts -> adding in array(state) -> disp in UI using map
+  //do something about reading posts -> adding in array(state) -> disp in UI using map read
 
   return (
     <>

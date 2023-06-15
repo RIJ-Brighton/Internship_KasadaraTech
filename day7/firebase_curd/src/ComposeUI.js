@@ -2,6 +2,8 @@ import './ComposeUI.css';
 import { addDoc , collection } from 'firebase/firestore';
 import { db } from './firebase';
 import { useState } from 'react'; 
+import { toast , ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ComposeUI ({ setShowPostMenu , username }){ 
 
@@ -12,17 +14,23 @@ export default function ComposeUI ({ setShowPostMenu , username }){
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      const post = {
-        title:title,
-        message:message,
-        username:username
-      };
-      console.log(post);
+      if(title.length >= 1 && message.length >= 1){
+        const post = {
+            Title:title,
+            Message:message,
+            Username:username
+        };
+        console.log(post);
+        toast.success('Posted!', {position: toast.POSITION.TOP_LEFT});
+      }else{
+        toast.warn('Enter Some Valid Title and Message', {position: toast.POSITION.TOP_LEFT});
+      }
       // insert into table
     }
 
     return(
         <div className='create-post' >
+          <ToastContainer />
           <h3>Create Post</h3>
           <button className='clear-btn' onClick={() => {
               setMessage('');

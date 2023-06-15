@@ -2,6 +2,8 @@ import './Card.css';
 
 export default function Card({ userName , title , message }){
 
+    // update , delete post
+
     return(
         <div className="card">
         <div className="card-body">
