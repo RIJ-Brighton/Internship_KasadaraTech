@@ -43,6 +43,21 @@
     text-transform: uppercase;
   }
   
-  .card-body {
+.card-body {
     padding: 1.2em;
-  }
+}
+
+.edit{
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+  border-bottom-left-radius: 9px;
+}
+
+.delete{
+  margin-left: 110px;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 9px;
+  border-bottom-left-radius: 0%;
+}
