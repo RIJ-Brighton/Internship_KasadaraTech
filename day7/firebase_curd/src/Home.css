@@ -65,6 +65,6 @@ button:hover {
 	justify-content: center;
 
 	display: grid;
-	grid-template-columns: auto auto auto;
+	/* grid-template-columns: auto auto auto; */
 	padding: 10px;
   }
