@@ -23,7 +23,7 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
             Title:title,
             Message:message,
             Gmail:gmail,
-            id:auth?.currentUser.uid
+            UID:auth?.currentUser.uid
         };
         console.log(post);
         toast.success('Posted!', {position: toast.POSITION.TOP_LEFT});
