@@ -5,20 +5,24 @@ import { useState } from 'react';
 import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function ComposeUI ({ setShowPostMenu , username }){ 
+export default function ComposeUI ({ setShowPostMenu , gmail }){ 
 
     const postReference = collection(db , 'posts');
 
     const [ title , setTitle ] = useState('');
     const [ message , setMessage ] = useState('');
   
+    const postUserPost = (post) => {
+        addDoc(postReference, post);
+    }
+
     const handleSubmit = (e) => {
       e.preventDefault();
       if(title.length >= 1 && message.length >= 1){
         const post = {
             Title:title,
             Message:message,
-            Username:username
+            Gmail:gmail
         };
         console.log(post);
         toast.success('Posted!', {position: toast.POSITION.TOP_LEFT});

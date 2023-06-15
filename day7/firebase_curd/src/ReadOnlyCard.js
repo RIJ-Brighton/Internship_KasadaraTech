@@ -1,8 +1,6 @@
-import './Card.css';
+import './ReadOnlyCard.css';
 
-export default function Card({ gmail , title , message }){
-
-    // update , delete post
+export default function ReadOnlyCard({ gmail , title , message }){
 
     return(
         <div className="card">
@@ -11,10 +9,8 @@ export default function Card({ gmail , title , message }){
             <div className='message-box'>
                 <p className='p' style={{overflowWrap: 'break-word'}} >{message}</p>
             </div>
-            <h5 className='posted-by' >Posted By {gmail.toString().split('@')[0]}</h5>
+            <h5 className='posted-by' >Posted By {gmail.split('@')[0]}</h5>
         </div>
-        <button className='edit'>Edit</button>
-        <button className='delete'>Delete</button>
         </div>
     );
 }

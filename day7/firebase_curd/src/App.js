@@ -116,14 +116,16 @@ export default function App() {
             <div className="overlay">
               <div className="overlay-panel overlay-left">
                 <h1>Welcome Back!</h1>
-                <p>Already have an Account?</p>
+                {/* <p>Already have an Account?</p> */}
+                <h4>Already have an Account?</h4>
                 <button className="ghost" id="signIn" onClick={() => {
                   container.current.classList.remove("right-panel-active");}
                 } >Log In</button>
               </div>
               <div className="overlay-panel overlay-right">
                 <h1>Welcome!</h1>
-                <p>Don't have an Account?</p>
+                {/* <p>Don't have an Account?</p> */}
+                <h4>Don't have an account?</h4>
                 <button className="ghost" id="signUp" onClick={() => {
                   container.current.classList.add("right-panel-active");}
                 }>Sign Up</button>

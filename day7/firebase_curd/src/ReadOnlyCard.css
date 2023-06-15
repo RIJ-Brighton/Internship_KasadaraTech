@@ -48,26 +48,6 @@
     padding: 1.2em;
 }
 
-.edit{
-  margin-right: 109px;
-  border-top-left-radius: 0%;
-  border-top-right-radius: 0%;
-  border-bottom-right-radius: 0%;
-  border-bottom-left-radius: 9px;
-}
-
-.delete{
-  margin-left:auto;
-  border-top-left-radius: 0%;
-  border-top-right-radius: 0%;
-  border-bottom-right-radius: 9px;
-  border-bottom-left-radius: 0%;
-}
-
-.title{
-  overflow: auto;
-}
-
 p{
   overflow: auto;
   overflow-wrap: 'break-word';

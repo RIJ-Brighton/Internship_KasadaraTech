@@ -61,6 +61,10 @@ button:hover {
 }
 
 .Posts {
-	display: flex;
+	overflow: auto;
 	justify-content: center;
+
+	display: grid;
+	grid-template-columns: auto auto auto;
+	padding: 10px;
   }

@@ -3,6 +3,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from './firebase';
 import { useState } from 'react';
 import Card from './Card';
+import ReadOnlyCard from './ReadOnlyCard';
 import ComposeUI from './ComposeUI';
 
 export default function Home({ gmail }) {
@@ -34,11 +35,43 @@ export default function Home({ gmail }) {
           </button>
         </div>
       </div>
-      <div className='Posts'> 
-        <Card userName={username} title={'Test Title'} message={'Test Message'} />
-      </div>
-      {showPostMenu ? <ComposeUI setShowPostMenu={setShowPostMenu}  username={username} /> : <></>
+      {showPostMenu ? <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} /> : <></>
         }
+      <div className='Posts'> 
+        {/* show card_with_update_and_del buttons only if gmail in post matches auth.gmail 
+        else show card_without_buttons  */}
+        <Card gmail={gmail} title={'Test Title'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title 1'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title2'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title3'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title4'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title5'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title6'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title7'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title8'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title9'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title0'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title1'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title2'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title3'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title4'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title5'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title6'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title7'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title8'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title9'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title0'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title1'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title2'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title3'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title4'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title5'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title6'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title7'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title8'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title9'} message={'Test Message'} />
+        <ReadOnlyCard gmail={gmail} title={'Test Title'} message={'Test Message'} />
+      </div>
     </>
   );
 }
