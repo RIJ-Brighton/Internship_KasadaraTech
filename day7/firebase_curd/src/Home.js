@@ -1,12 +1,16 @@
 import './Home.css';
 import { signOut } from 'firebase/auth';
 import { auth } from './firebase';
-import { useState } from 'react';
+import { onSnapshot , collection} from 'firebase/firestore';
+import { db } from './firebase';
+import { useEffect, useState } from 'react';
 import Card from './Card';
 import ReadOnlyCard from './ReadOnlyCard';
 import ComposeUI from './ComposeUI';
 
 export default function Home({ gmail }) {
+
+  const postReference = collection(db , 'posts');
 
   const username = gmail.split('@')[0];
   const profile = username.charAt(0).toUpperCase();
@@ -14,8 +18,20 @@ export default function Home({ gmail }) {
 
   const [ showPostMenu , setShowPostMenu ] = useState(false);
 
+  const [ posts , setPosts ] = useState([]);
   //do something about reading posts -> adding in array(state) -> disp in UI using map read
-
+  useEffect(() => {
+    const unsubscribe = onSnapshot(postReference, (snapshot) => {
+      const posts = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      setPosts(posts);
+      console.log("New posts:","number of posts "+(posts.length), posts);
+    }, (error) => {
+      console.log('Post fetch error:', error);
+    });
+  
+    return () => unsubscribe();
+  }, []);
+  
   return (
     <>
       <div className="home">
@@ -37,13 +53,12 @@ export default function Home({ gmail }) {
       </div>
       {showPostMenu ? <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} /> : <></>
         }
-      <div className='Posts'> 
+      <div className='Posts'>
         {/* show card_with_update_and_del buttons only if gmail in post matches auth.gmail 
         else show card_without_buttons  */}
-        <Card gmail={gmail} title={'Test Title 0'} message={'Test Message'} />
-        <ReadOnlyCard gmail={gmail} title={'Test Title 1'} message={'Test Message'} />
-        <ReadOnlyCard gmail={gmail} title={'Test Title 2'} message={'Test Message'} />
-        <ReadOnlyCard gmail={gmail} title={'Test Title3 '} message={'Test Message'} />
+        { posts.map(post => post?.UID === auth?.currentUser.uid ? 
+        <Card gmail={post.Gmail} title={post.Title} message={post.Message} /> : 
+        <ReadOnlyCard gmail={post.Gmail} title={post.Title} message={post.Message} /> )}
       </div>
     </>
   );

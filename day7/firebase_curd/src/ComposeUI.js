@@ -25,6 +25,7 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
             Gmail:gmail,
             UID:auth?.currentUser.uid
         };
+        postUserPost(post);
         console.log(post);
         toast.success('Posted!', {position: toast.POSITION.TOP_LEFT});
       }else{
