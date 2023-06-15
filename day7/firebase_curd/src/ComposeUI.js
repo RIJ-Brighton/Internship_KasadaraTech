@@ -1,6 +1,6 @@
 import './ComposeUI.css';
 import { addDoc , collection } from 'firebase/firestore';
-import { db } from './firebase';
+import { db , auth } from './firebase';
 import { useState } from 'react'; 
 import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,7 +22,8 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
         const post = {
             Title:title,
             Message:message,
-            Gmail:gmail
+            Gmail:gmail,
+            id:auth?.currentUser.uid
         };
         console.log(post);
         toast.success('Posted!', {position: toast.POSITION.TOP_LEFT});
