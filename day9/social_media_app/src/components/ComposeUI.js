@@ -1,29 +1,33 @@
 import './ComposeUI.css';
 import { addDoc , collection } from 'firebase/firestore';
-import { db , auth } from '../firebase';
+import { db } from '../firebase';
+import { useUserAuth } from '../context/UserAuthContext';
 import { useState } from 'react'; 
 import { toast , ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function ComposeUI ({ setShowPostMenu , gmail }){ 
 
+    const { user } = useUserAuth();  
     const postReference = collection(db , 'posts');
 
     const [ title , setTitle ] = useState('');
     const [ message , setMessage ] = useState('');
-  
+    const [ imgSrc , setImgSrc ] = useState('base64 encoded image placeholder');
+
     const postUserPost = (post) => {
         addDoc(postReference, post);
     }
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      if(title.length >= 1 && message.length >= 1){
+      if(title.length >= 1 && message.length >= 1 && imgSrc.length > 1){
         const post = {
             Title:title,
-            Message:message,
-            Gmail:gmail,
-            UID:auth?.currentUser.uid
+            Quote:message,
+            Image:imgSrc,
+            Gmail:user.email,
+            UID:user.uid
         };
         postUserPost(post);
         console.log(post);
@@ -31,7 +35,6 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
       }else{
         toast.warn('Enter Some Valid Title and Message', {position: toast.POSITION.TOP_LEFT});
       }
-      // insert into table
     }
 
     return(
@@ -43,15 +46,16 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
               setTitle('');
               setShowPostMenu(false);
             }} >Cancel</button>
+
           <form onSubmit={handleSubmit}>
             <div className='input-div'>
               <input type="text" placeholder='Title' className='title-area' onChange={e => setTitle(e.target.value)} /><br/>
               <textarea type="text" placeholder='  Message' className='message-area' rows={3} onChange={e => setMessage(e.target.value)} />
             </div>
             <br/>
-            <button type="submit">Submit</button>
-            
+            <button type="submit">Submit</button>  
           </form>
+
         </div>
     );
 }

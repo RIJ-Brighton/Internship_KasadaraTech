@@ -1,6 +1,6 @@
-import { signOut } from 'firebase/auth';
-import { auth , db } from '../firebase';
+import { db } from '../firebase';
 import { onSnapshot , collection } from 'firebase/firestore';
+import { useUserAuth } from '../context/UserAuthContext';
 import { useEffect, useState } from 'react';
 
 import './Home.css';
@@ -10,12 +10,14 @@ import ComposeUI from './ComposeUI';
 
 export default function Home() {
 
-  // const gmail = read gmail from context
+  const { logOut , user } = useUserAuth();
+
+  const gmail = user.email;
 
   const postReference = collection(db , 'posts');
 
-  const username = gmail.split('@')[0];
-  const profile = username.charAt(0).toUpperCase();
+  const username = gmail?.split('@')[0];
+  const profile = username?.charAt(0).toUpperCase();
   const src = localStorage.getItem('profile');
 
   const [ showPostMenu , setShowPostMenu ] = useState(false);
@@ -46,21 +48,18 @@ export default function Home() {
             setShowPostMenu(true);
           }} >Create Post</button>
           <button className="form-button" onClick={() => {
-            signOut(auth);
+            logOut();
             localStorage.clear();
           }}>
             Log Out
           </button>
         </div>
       </div>
-      {showPostMenu ? <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} /> : <></>
-        }
+      {showPostMenu ? <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} /> : <></>}
       <div className='Posts'>
-        {/* show card_with_update_and_del buttons only if gmail in post matches auth.gmail 
-        else show card_without_buttons  */}
-        { posts.map(post => post?.UID === auth?.currentUser.uid ? 
-        <Card gmail={post.Gmail} title={post.Title} message={post.Message} /> : 
-        <ReadOnlyCard gmail={post.Gmail} title={post.Title} message={post.Message} /> )}
+        { posts.map(post => post.UID === user.uid ? 
+        <Card key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} /> : 
+        <ReadOnlyCard key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} /> )}
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import './Card.css';
 
-export default function Card({ gmail , title , message }){
+export default function Card({ gmail , title , Quote }){
 
     // update , delete post
 
@@ -9,7 +9,7 @@ export default function Card({ gmail , title , message }){
         <div className="card-body">
             <h2 className='title'  >{title}</h2>
             <div className='message-box'>
-                <p className='p' style={{overflowWrap: 'break-word'}} >{message}</p>
+                <p className='p' style={{overflowWrap: 'break-word'}} >{Quote}</p>
             </div>
             <h5 className='posted-by' >Posted By {gmail.toString().split('@')[0]}</h5>
         </div>

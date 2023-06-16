@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { 
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -13,12 +14,14 @@ const userAuthContext = createContext();
 
 export function UseAuthContextProvider( { children } ){
 
+    const navigate = useNavigate();
     const [ user , setUser ] = useState({});
 
     useEffect(() => {
         const s = onAuthStateChanged(auth, (cur) => {
-          console.log('changed');
+          console.log('changed',cur);
           setUser(cur);
+          cur ? navigate('/home') : navigate('/')  
         });
       
         return () => s();

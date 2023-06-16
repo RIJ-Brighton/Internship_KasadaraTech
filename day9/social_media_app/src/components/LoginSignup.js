@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './LoginSignup.css'
 
 export default function LoginSignup() {
-
+    
     const {logIn, signUp, signInWithGoogle} = useUserAuth();
     const navigate = useNavigate();
 
