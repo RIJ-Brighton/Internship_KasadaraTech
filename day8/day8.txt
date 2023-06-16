@@ -1,1 +1,2 @@
 11:00 - 3:20 Continuing the day7 project - UI changes
+3:30 - 5:00 implementing post and fetch functions to upload and fetch posts postsed by users from firebase firestore database
