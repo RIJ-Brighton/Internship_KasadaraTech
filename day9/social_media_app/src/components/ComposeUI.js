@@ -3,7 +3,7 @@ import { addDoc , collection } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useUserAuth } from '../context/UserAuthContext';
 import { useState } from 'react'; 
-import { toast , ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function ComposeUI ({ setShowPostMenu , gmail }){ 
@@ -39,7 +39,6 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
 
     return(
         <div className='create-post' >
-          <ToastContainer />
           <h3>Create Post</h3>
           <button className='clear-btn' onClick={() => {
               setMessage('');

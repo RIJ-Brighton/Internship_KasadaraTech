@@ -31,10 +31,6 @@
     transition: all ease-in 100ms;
   }
   
-  .card p {
-    color: #777;
-  }
-  
   .card h5 {
     color: #bbb;
     font-weight: 700;
@@ -68,13 +64,12 @@
   overflow: auto;
 }
 
-p{
+#quote{
   overflow: auto;
   overflow-wrap: 'break-word';
   width: 340px;
   height: 100px;
   border: none;
-  background-color: rgb(242, 242, 242);
   box-sizing: border-box;
 }
 

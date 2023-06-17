@@ -5,6 +5,7 @@
 }
 
 .Body{
+	overflow: hidden;
 	justify-content: center;
 	align-items: center;
 	display: flex;

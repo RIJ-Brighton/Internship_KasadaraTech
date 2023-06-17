@@ -2,6 +2,7 @@ import { db } from '../firebase';
 import { onSnapshot , collection } from 'firebase/firestore';
 import { useUserAuth } from '../context/UserAuthContext';
 import { useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 import './Home.css';
 import Card from './Card';
@@ -14,8 +15,6 @@ export default function Home() {
 
   const gmail = user.email;
 
-  const postReference = collection(db , 'posts');
-
   const username = gmail?.split('@')[0];
   const profile = username?.charAt(0).toUpperCase();
   const src = localStorage.getItem('profile');
@@ -25,7 +24,7 @@ export default function Home() {
   const [ posts , setPosts ] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(postReference, (snapshot) => {
+    const unsubscribe = onSnapshot(collection(db , 'posts'), (snapshot) => {
       const posts = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       setPosts(posts);
       console.log("New posts:","number of posts "+(posts.length), posts);
@@ -38,6 +37,7 @@ export default function Home() {
   
   return (
     <>
+    <ToastContainer/>
       <div className="home">
         <div className="top-left">
           <h2>Hello, {username}</h2>
@@ -58,7 +58,7 @@ export default function Home() {
       {showPostMenu ? <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} /> : <></>}
       <div className='Posts'>
         { posts.map(post => post.UID === user.uid ? 
-        <Card key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} /> : 
+        <Card key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} id={post.id} /> : 
         <ReadOnlyCard key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} /> )}
       </div>
     </>
