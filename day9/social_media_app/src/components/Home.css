@@ -1,7 +1,10 @@
+.home-backGround{
+	background-image: url('../asserts/flat-mountains.svg');
+}
+
 .home {
 	position: relative;
 	padding: 40px;
-	background-color: #fff;
 	color: black;
 	font-family: 'Roboto', sans-serif;
 }
@@ -14,6 +17,7 @@
   }
   
 .top-right {
+	width: 15vw;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -48,7 +52,6 @@
 	font-size: 14px;
 	text-transform: uppercase;
 	color: #fff;
-	background-color: rgba(0, 217, 255, 0.8);
 	border: 0;
 	border-radius: 10px;
 	outline: none;
@@ -56,15 +59,27 @@
 	transition: .3s ease-in-out;
 }
 button:hover {
-	background-color: rgb(29, 194, 200);
 	box-shadow: 5px 5px 5px rgba(123, 215, 220, 0.2);
 }
 
 .Posts {
 	overflow: auto;
 	justify-content: center;
-
 	display: grid;
-	/* grid-template-columns: auto auto auto; */
 	padding: 10px;
   }
+
+  .add-post{
+	position: relative;
+	margin-right: 15%;
+  }
+
+  .sign-out{
+	position: relative;
+  }
+
+  .user-profile{
+	position: relative;
+	margin-right: 15%;
+	margin-left: 10%;
+}

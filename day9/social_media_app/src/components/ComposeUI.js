@@ -1,4 +1,7 @@
 import './ComposeUI.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { addDoc , collection } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useUserAuth } from '../context/UserAuthContext';
@@ -40,11 +43,11 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
     return(
         <div className='create-post' >
           <h3>Create Post</h3>
-          <button className='clear-btn' onClick={() => {
+          <FontAwesomeIcon icon={faTimes} className='clear-btn' onClick={() => {
               setMessage('');
               setTitle('');
               setShowPostMenu(false);
-            }} >Cancel</button>
+            }}/>
 
           <form onSubmit={handleSubmit}>
             <div className='input-div'>

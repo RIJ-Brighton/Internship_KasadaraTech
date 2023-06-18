@@ -3,6 +3,8 @@ import { onSnapshot , collection } from 'firebase/firestore';
 import { useUserAuth } from '../context/UserAuthContext';
 import { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus , faSignOutAlt , faUser } from '@fortawesome/free-solid-svg-icons';
 
 import './Home.css';
 import Card from './Card';
@@ -36,23 +38,22 @@ export default function Home() {
   }, []);
   
   return (
-    <>
-    <ToastContainer/>
+    <div className='home-backGround' >
+      <ToastContainer/>
       <div className="home">
         <div className="top-left">
-          <h2>Hello, {username}</h2>
+          <h2 className='user-name' >Hello, {username}</h2>
         </div>
         <div className="top-right">
-        {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }
-          <button className="form-button" id='postCreation' onClick={() => {
+          {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }
+          <FontAwesomeIcon className='user-profile' icon={faUser} />
+          <FontAwesomeIcon className='add-post' icon={faPlus} id='postCreation' onClick={() => {
             setShowPostMenu(true);
-          }} >Create Post</button>
-          <button className="form-button" onClick={() => {
+          }} />
+          <FontAwesomeIcon className='sign-out' icon={faSignOutAlt} onClick={() => {
             logOut();
             localStorage.clear();
-          }}>
-            Log Out
-          </button>
+          }}/>
         </div>
       </div>
       {showPostMenu ? <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} /> : <></>}
@@ -61,6 +62,6 @@ export default function Home() {
         <Card key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} id={post.id} /> : 
         <ReadOnlyCard key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} /> )}
       </div>
-    </>
+    </div>
   );
 }

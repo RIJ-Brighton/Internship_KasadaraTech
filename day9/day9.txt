@@ -1,1 +1,5 @@
 11:00 - x:xx implementing delete and update functions to user's posts
+
+saturday - delete 2 hrs
+
+sunday - profile
