@@ -19,7 +19,7 @@
   }
   
 .top-right {
-	width: 15vw;
+	width: 20%;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -65,7 +65,7 @@ button:hover {
 }
 
 .Posts {
-	margin-top: 5%;
+	margin-top: 10%;
 	overflow: auto;
 	justify-content: center;
 	display: grid;
