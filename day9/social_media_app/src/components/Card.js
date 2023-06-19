@@ -10,7 +10,7 @@ import { faTrash , faEdit } from '@fortawesome/free-solid-svg-icons';
 
 const ConfirmationToast = ({ onConfirm, onCancel }) => (
     <div className='confirmationStyle'>
-      <div>Are you sure you want to proceed?</div><br/>
+      <div>Confirm Delete</div><br/>
       <button className='buttonStyle' onClick={onConfirm}>Yes</button>
       <button className='buttonStyle' onClick={onCancel}>No</button>
     </div>

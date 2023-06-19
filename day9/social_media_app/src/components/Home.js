@@ -39,7 +39,7 @@ export default function Home() {
   
   return (
     <>
-      <ToastContainer/>
+      {showPostMenu && <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} />}
       <div className="home">
         <div className="top-left">
           <h2 className='user-name' >Hello, {username}</h2>
@@ -56,7 +56,7 @@ export default function Home() {
           }}/>
         </div>
       </div>
-      {showPostMenu ? <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} /> : <></>}
+      <ToastContainer/>
       <div className='Posts'>
         { posts.map(post => post.UID === user.uid ? 
         <Card key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} id={post.id} /> : 

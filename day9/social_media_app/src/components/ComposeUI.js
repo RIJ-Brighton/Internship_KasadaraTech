@@ -57,13 +57,13 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
               setShowPostMenu(false);
             }}/>
 
-          <form onSubmit={handleSubmit}>
+          <form className='ip-form' onSubmit={handleSubmit}>
             <div className='input-div'>
               <input type="text" placeholder='Title' className='title-area' onChange={e => setTitle(e.target.value)} /><br/>
               <textarea type="text" placeholder='  Message' className='message-area' rows={3} onChange={e => setMessage(e.target.value)} />
             </div>
             <br/>
-            <button type="submit">Submit</button>  
+            <button className='submit-btn' type="submit">Submit</button>  
           </form>
 
         </div>
