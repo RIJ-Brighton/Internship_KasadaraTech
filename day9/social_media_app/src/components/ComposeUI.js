@@ -2,9 +2,11 @@ import './ComposeUI.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
 import { addDoc , collection } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useUserAuth } from '../context/UserAuthContext';
+
 import { useState } from 'react'; 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

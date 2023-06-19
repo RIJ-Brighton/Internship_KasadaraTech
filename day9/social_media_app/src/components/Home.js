@@ -1,10 +1,15 @@
 import { db } from '../firebase';
 import { onSnapshot , collection } from 'firebase/firestore';
 import { useUserAuth } from '../context/UserAuthContext';
+
 import { useEffect, useState } from 'react';
+
 import { ToastContainer } from 'react-toastify';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus , faSignOutAlt , faUser } from '@fortawesome/free-solid-svg-icons';
+
+import { useNavigate } from 'react-router-dom';
 
 import './Home.css';
 import Card from './Card';
@@ -13,7 +18,9 @@ import ComposeUI from './ComposeUI';
 
 export default function Home() {
 
+
   const { logOut , user } = useUserAuth();
+  const navigate = useNavigate();
 
   const gmail = user.email;
 
@@ -46,7 +53,10 @@ export default function Home() {
         </div>
         <div className="top-right">
           {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }
-          <FontAwesomeIcon className='user-profile' icon={faUser} />
+          <FontAwesomeIcon className='user-profile' icon={faUser} onClick={ () => {
+              navigate('/profile');
+            }
+          }/>
           <FontAwesomeIcon className='add-post' icon={faPlus} id='postCreation' onClick={() => {
             setShowPostMenu(true);
           }} />

@@ -1,4 +1,6 @@
 import { useUserAuth } from '../context/UserAuthContext';
+import { addDoc , collection } from 'firebase/firestore';
+import { db } from '../firebase';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -13,17 +15,24 @@ import './LoginSignup.css'
 
 export default function LoginSignup() {
     
+    const postReference = collection(db , 'Users');
     const {logIn, signUp, signInWithGoogle} = useUserAuth();
     const navigate = useNavigate();
 
     const container = useRef();
     const [ showPassword , setShowPassword ] = useState(false);
+    const [ signUpUsername , setSignUpUsername ] = useState('');
     const [ signUpEmail , setSignUpEmail ] = useState('');
     const [ signUpPassword , setSignUpPassword ] = useState('');
     const [ logInEmail , setLogInEmail ] = useState('');
     const [ logInPassword , setLogInPassword ] = useState('');
 
     //functions
+
+    //username check
+    const isUsernameExists = (username) => {
+        return false;
+    }
 
     //signup
     const signUpClick = (e) => {
@@ -36,8 +45,18 @@ export default function LoginSignup() {
             toast.error('Password must be atleast 8 Characters Long', {position: toast.POSITION.TOP_RIGHT});
             return;
         }
+        if(isUsernameExists(signUpUsername)){
+            toast.error('Username already exists', {position: toast.POSITION.TOP_RIGHT});
+            return;
+        }
         signUp(signUpEmail, signUpPassword).then((createdCreds) => {
-            console.log(createdCreds);
+            //add user info to db
+            const userInfo = {
+                Username : signUpUsername,
+                UID : createdCreds.user.uid
+            }
+
+            console.log(userInfo,'created creds',createdCreds);
             toast.success('Account Created, Login', {position: toast.POSITION.TOP_RIGHT});
         }).catch((error) => {
             if(error.code === 'auth/email-already-in-use') {
@@ -77,6 +96,9 @@ export default function LoginSignup() {
                 <div className="form-container sign-up-container">
                     <form action='#' onSubmit={signUpClick}>
                     <h1>Create Account</h1><br/>
+                    <input type="text" placeholder="username" onChange={(e) => {
+                        setSignUpUsername(e.target.value);}
+                    } required/>
                     <input type="email" placeholder="Email" onChange={(e) => {
                         setSignUpEmail(e.target.value);}
                     } required/>
