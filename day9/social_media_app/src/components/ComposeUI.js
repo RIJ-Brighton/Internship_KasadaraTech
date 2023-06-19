@@ -24,6 +24,14 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
 
     const handleSubmit = (e) => {
       e.preventDefault();
+      if(title.length > 30) {
+        toast.warn('Title cant be longer than 30 characters', {position: toast.POSITION.TOP_LEFT});
+        return;
+      }
+      if(message.length > 1300) {
+        toast.warn('Quote cant be longer than 1300 characters', {position: toast.POSITION.TOP_LEFT});
+        return;
+      }
       if(title.length >= 1 && message.length >= 1 && imgSrc.length > 1){
         const post = {
             Title:title,

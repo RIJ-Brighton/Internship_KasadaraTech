@@ -38,7 +38,7 @@ export default function Home() {
   }, []);
   
   return (
-    <div className='home-backGround' >
+    <>
       <ToastContainer/>
       <div className="home">
         <div className="top-left">
@@ -62,6 +62,6 @@ export default function Home() {
         <Card key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} id={post.id} /> : 
         <ReadOnlyCard key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} /> )}
       </div>
-    </div>
+      </>
   );
 }

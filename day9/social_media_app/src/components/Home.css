@@ -1,9 +1,11 @@
-.home-backGround{
-	background-image: url('../asserts/flat-mountains.svg');
-}
-
 .home {
-	position: relative;
+	z-index: 9999;
+	background-color: rgba(0, 0, 0, 0.033);
+    backdrop-filter: blur(10px);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 5vh;
 	padding: 40px;
 	color: black;
 	font-family: 'Roboto', sans-serif;
@@ -22,10 +24,10 @@
 	top: 0;
 	right: 0;
 	padding: 10px;
-	margin-top: 5px;
 }
 
 .profile {
+	margin-top: 5%;
 	display: inline-block;
 	width: 40px;
 	height: 40px;
@@ -63,22 +65,23 @@ button:hover {
 }
 
 .Posts {
+	margin-top: 5%;
 	overflow: auto;
 	justify-content: center;
 	display: grid;
 	padding: 10px;
-  }
+}
 
-  .add-post{
+.add-post{
 	position: relative;
 	margin-right: 15%;
-  }
+}
 
-  .sign-out{
+.sign-out{
 	position: relative;
-  }
+}
 
-  .user-profile{
+.user-profile{
 	position: relative;
 	margin-right: 15%;
 	margin-left: 10%;
