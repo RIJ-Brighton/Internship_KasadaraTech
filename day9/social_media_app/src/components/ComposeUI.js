@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function ComposeUI ({ setShowPostMenu , gmail }){ 
+export default function ComposeUI ({ setShowPostMenu }){ 
 
     const { user } = useUserAuth();  
     const postReference = collection(db , 'posts');
@@ -42,6 +42,7 @@ export default function ComposeUI ({ setShowPostMenu , gmail }){
         };
         postUserPost(post);
         console.log(post);
+        setShowPostMenu(false);
         toast.success('Posted!', {position: toast.POSITION.TOP_LEFT});
       }else{
         toast.warn('Enter Some Valid Title and Message', {position: toast.POSITION.TOP_LEFT});
