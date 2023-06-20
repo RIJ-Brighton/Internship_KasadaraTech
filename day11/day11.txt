@@ -5,6 +5,7 @@
     passing username queried from db through context
 }
 
-4:00 - 6:15 {
+4:00 - 6:25 {
     profile page UI and username update
+    user's posts on their profiles
 }
