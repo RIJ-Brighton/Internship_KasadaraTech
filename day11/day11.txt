@@ -5,6 +5,6 @@
     passing username queried from db through context
 }
 
-4:00 - x:xx {
-    
+4:00 - 6:15 {
+    profile page UI and username update
 }

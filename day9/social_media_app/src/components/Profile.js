@@ -1,16 +1,19 @@
-import './Profile.css';
 import { useUserAuth } from '../context/UserAuthContext';
 import { setDoc , doc } from 'firebase/firestore';
 import { db } from '../firebase';
+import { onSnapshot , collection } from 'firebase/firestore';
 
 import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft , faSignOutAlt , faEdit , faTimes } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import './Profile.css';
+import Card from './Card';
 
 export default function Profile(){
 
@@ -21,9 +24,22 @@ export default function Profile(){
 
     const [ newUsername , setNewUsername ] = useState('');
     const [ showChangeUsername , setShowChangeUsername ] = useState(false);
-    
+    const [ posts , setPosts ] = useState([]);
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+      const unsubscribe = onSnapshot(collection(db , 'posts'), (snapshot) => {
+        const posts = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        setPosts(posts);
+        console.log("New posts:","number of posts "+(posts.length), posts);
+      }, (error) => {
+        console.log('Post fetch error:', error);
+      });
     
+      return () => unsubscribe();
+    }, []);
+
     const changeUsername = (e) => {
         e.preventDefault();
         if(newUsername.length > 15 || newUsername.length < 8){
@@ -81,6 +97,10 @@ export default function Profile(){
         </div>
         </div>
       <ToastContainer/>
+      <div className='Posts'>
+        <h2>Your Quotes</h2>
+        { posts.map(post => post.UID === user.uid ? <Card key={post.id} title={post.Title} Quote={post.Quote} id={post.id} /> : <></> )}
+      </div>
        </>
     );
 }
