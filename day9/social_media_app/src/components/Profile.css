@@ -19,21 +19,12 @@
 }
       
 .top-right {
-    width: 20%;
+    height: 10%;
+    width: 25%;
     position: absolute;
     top: 0;
     right: 0;
     padding: 10px;
-}
-
-.back{
-	position: relative;
-	margin-right: 15%;
-	margin-left: 10%;
-}
-
-.sign-out{
-	position: relative;
 }
 
 .profile {
