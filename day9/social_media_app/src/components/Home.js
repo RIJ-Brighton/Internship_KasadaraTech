@@ -47,7 +47,7 @@ export default function Home() {
       {showPostMenu && <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} />}
       <div className="home">
         <div className="top-left">
-          <h2 className='user-name' >Hello, {currentUsername}</h2>
+          <h2 className='Quoteogram' >Quote-O-gram</h2>
         </div>
         <div className="top-right">
           {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }

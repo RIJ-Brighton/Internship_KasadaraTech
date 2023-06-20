@@ -31,6 +31,10 @@ export default function LoginSignup() {
     //signup
     const signUpClick = (e) => {
         e.preventDefault();
+        if(signUpUsername.length > 15 || signUpUsername.length < 8){
+            toast.error('Username must be between 8 and 15 characters', {position: toast.POSITION.TOP_RIGHT});
+            return;
+        }
         if(!(signUpEmail.includes("@gmail.com"))){
             toast.error('Enter a valid Gmail ID', {position: toast.POSITION.TOP_RIGHT});
             return;

@@ -61,7 +61,7 @@ export default function ComposeUI ({ setShowPostMenu }){
               <textarea type="text" placeholder='  Message' className='message-area' rows={3} onChange={e => setMessage(e.target.value)} />
             </div>
             <br/>
-            <button className='submit-btn' type="submit">Submit</button>  
+            <button className='submit-btn' type="submit">Post</button>  
           </form>
 
         </div>

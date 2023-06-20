@@ -1,0 +1,60 @@
+.nav{
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.033);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 5vh;
+    padding: 40px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+    
+.top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+}
+      
+.top-right {
+    width: 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.back{
+	position: relative;
+	margin-right: 15%;
+	margin-left: 10%;
+}
+
+.sign-out{
+	position: relative;
+}
+
+.profile {
+	margin-top: 5%;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #c9c9c9;
+	text-align: center;
+	line-height: 40px;
+	font-weight: bold; 
+	margin-right: 20px;
+}
+
+.profile:hover{
+	background-color: rgb(42, 42, 42);
+	color: aliceblue;
+}
+
+.change-uname{
+    margin-top: 10%;
+    width: 50vw;
+}
