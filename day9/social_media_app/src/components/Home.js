@@ -19,12 +19,12 @@ import ComposeUI from './ComposeUI';
 export default function Home() {
 
 
-  const { logOut , user } = useUserAuth();
+  const { logOut , user , currentUsername } = useUserAuth();
   const navigate = useNavigate();
 
   const gmail = user.email;
 
-  const username = gmail?.split('@')[0];
+  const username = currentUsername;
   const profile = username?.charAt(0).toUpperCase();
   const src = localStorage.getItem('profile');
 

@@ -1,1 +1,2 @@
-11:00 - x:xx -> continuing the dev of social media site (profile page)
+11:00 - 2:00 -> continuing the dev of social media site (UI)
+3:00 - 5:00 -> adding username

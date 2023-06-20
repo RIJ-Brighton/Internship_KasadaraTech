@@ -1,5 +1,5 @@
 import { useUserAuth } from '../context/UserAuthContext';
-import { addDoc , collection } from 'firebase/firestore';
+import { setDoc , doc } from 'firebase/firestore';
 import { db } from '../firebase';
 
 import { useNavigate } from 'react-router-dom';
@@ -15,8 +15,7 @@ import './LoginSignup.css'
 
 export default function LoginSignup() {
     
-    const postReference = collection(db , 'Users');
-    const {logIn, signUp, signInWithGoogle} = useUserAuth();
+    const {logIn, signUp, signInWithGoogle , isUsernameExists} = useUserAuth();
     const navigate = useNavigate();
 
     const container = useRef();
@@ -28,11 +27,6 @@ export default function LoginSignup() {
     const [ logInPassword , setLogInPassword ] = useState('');
 
     //functions
-
-    //username check
-    const isUsernameExists = (username) => {
-        return false;
-    }
 
     //signup
     const signUpClick = (e) => {
@@ -51,12 +45,13 @@ export default function LoginSignup() {
         }
         signUp(signUpEmail, signUpPassword).then((createdCreds) => {
             //add user info to db
-            const userInfo = {
-                Username : signUpUsername,
-                UID : createdCreds.user.uid
-            }
+            const userInfo = {Username : signUpUsername}
+            setDoc(doc(db , 'Users' , createdCreds.user.uid), userInfo).then((resp)=>{
+                console.log('Success : upload user info to Users',resp);
+            }).catch((error)=>{
+                console.log('Failure : didnt upload to db',error);
+            })
 
-            console.log(userInfo,'created creds',createdCreds);
             toast.success('Account Created, Login', {position: toast.POSITION.TOP_RIGHT});
         }).catch((error) => {
             if(error.code === 'auth/email-already-in-use') {
