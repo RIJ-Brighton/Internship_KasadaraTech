@@ -23,9 +23,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   const gmail = user.email;
-
-  const username = currentUsername;
-  const profile = username?.charAt(0).toUpperCase();
+  const profile = currentUsername?.charAt(0).toUpperCase();
   const src = localStorage.getItem('profile');
 
   const [ showPostMenu , setShowPostMenu ] = useState(false);
@@ -49,7 +47,7 @@ export default function Home() {
       {showPostMenu && <ComposeUI setShowPostMenu={setShowPostMenu}  gmail={gmail} />}
       <div className="home">
         <div className="top-left">
-          <h2 className='user-name' >Hello, {username}</h2>
+          <h2 className='user-name' >Hello, {currentUsername}</h2>
         </div>
         <div className="top-right">
           {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }
@@ -69,8 +67,8 @@ export default function Home() {
       <ToastContainer/>
       <div className='Posts'>
         { posts.map(post => post.UID === user.uid ? 
-        <Card key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} id={post.id} /> : 
-        <ReadOnlyCard key={post.id} gmail={post.Gmail} title={post.Title} Quote={post.Quote} /> )}
+        <Card key={post.id} title={post.Title} Quote={post.Quote} id={post.id} /> : 
+        <ReadOnlyCard key={post.id} title={post.Title} Quote={post.Quote} uid={post.UID}/> )}
       </div>
       </>
   );

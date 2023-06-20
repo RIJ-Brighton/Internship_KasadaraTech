@@ -1,6 +1,13 @@
 import './ReadOnlyCard.css';
+import { useUserAuth } from '../context/UserAuthContext';
 
-export default function ReadOnlyCard({ gmail , title , Quote }){
+export default function ReadOnlyCard({ title , Quote , uid }){
+
+    const { allUsers } = useUserAuth();
+    let name = '';
+    allUsers.forEach(user => {
+        if(user.id === uid) {name = user.Username}
+    })
 
     return(
         <div className="ReadOnlyCard">
@@ -9,7 +16,7 @@ export default function ReadOnlyCard({ gmail , title , Quote }){
             <div className='ReadOnlyCard-message-box'>
                 <p className='quote'>{Quote}</p>
             </div>
-            <h5 className='ReadOnlyCard-posted-by' >Posted By {gmail.toString().split('@')[0]}</h5>
+            <h5 className='ReadOnlyCard-posted-by' >Posted By {name ? name : 'Deleted User'}</h5>
         </div>
         </div>
     );

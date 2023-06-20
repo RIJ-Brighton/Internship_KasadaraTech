@@ -8,7 +8,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup
  } from 'firebase/auth'
-import { onSnapshot , collection , setDoc , doc , getDoc } from 'firebase/firestore';
+import { onSnapshot , collection , setDoc , doc } from 'firebase/firestore';
 import { auth , db } from '../firebase';
 
 const userAuthContext = createContext();
@@ -29,7 +29,7 @@ export function UseAuthContextProvider( { children } ){
             //username
             if(cur){
                 onSnapshot(collection(db , 'Users'), (snapshot) => {
-                    snapshot.docs.map(usr => {
+                    snapshot.docs.forEach(usr => {
                         if(usr.id === cur.uid){
                             console.log('usr',usr.data().Username,usr.id);
                             setCurrentUsername(usr.data().Username);
@@ -46,7 +46,7 @@ export function UseAuthContextProvider( { children } ){
 
     useEffect(() => {
         const unsubscribe = onSnapshot(collection(db , 'Users'), (snapshot) => {
-            const users = snapshot.docs.map((doc) => ({ ...doc.data()}));
+            const users = snapshot.docs.map((doc) => ({ ...doc.data() , id:doc.id}));
             setAllUsers(users);
             console.log("All USERS "+(users.length), users);
         }, (error) => {
@@ -90,7 +90,7 @@ export function UseAuthContextProvider( { children } ){
     
     function isUsernameExists(username){
         var exists = false;
-        allUsers.map(user => {
+        allUsers.forEach(user => {
             if(user.Username === username) {
                 exists = true;
                 console.log("EXISTSSSSS");    

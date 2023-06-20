@@ -1,4 +1,6 @@
 import './Card.css';
+import { useUserAuth } from '../context/UserAuthContext';
+
 import { doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -16,7 +18,9 @@ const ConfirmationToast = ({ onConfirm, onCancel }) => (
     </div>
 );
 
-export default function Card({ gmail , title , Quote, id }){
+export default function Card({ title , Quote, id }){
+
+    const { currentUsername } = useUserAuth();
 
     const handleClick = () => {
         toast(
@@ -57,7 +61,7 @@ export default function Card({ gmail , title , Quote, id }){
             <div className='message-box'>
                 <p className='quote'>{Quote}</p>
             </div>
-            <h5 className='posted-by' >Posted By {gmail.toString().split('@')[0]}</h5>
+            <h5 className='posted-by' >Posted By {currentUsername}</h5>
         </div>
         <FontAwesomeIcon  className='edit' icon={faEdit} />
         <FontAwesomeIcon  className='delete' icon={faTrash} onClick={handleClick}/>

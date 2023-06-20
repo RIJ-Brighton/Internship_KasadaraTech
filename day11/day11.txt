@@ -1,1 +1,10 @@
-11:00 - x:xx 
+11:00 - 3:00 username{
+    different username for new users signingup through google
+    username exists error
+    queryed all existing users names
+    passing username queried from db through context
+}
+
+4:00 - x:xx {
+    
+}

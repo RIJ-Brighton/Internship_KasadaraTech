@@ -13,16 +13,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function ComposeUI ({ setShowPostMenu }){ 
 
-    const { user } = useUserAuth();  
-    const postReference = collection(db , 'posts');
+    const { user } = useUserAuth();
 
     const [ title , setTitle ] = useState('');
     const [ message , setMessage ] = useState('');
     const [ imgSrc , setImgSrc ] = useState('base64 encoded image placeholder');
-
-    const postUserPost = (post) => {
-        addDoc(postReference, post);
-    }
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -42,7 +37,7 @@ export default function ComposeUI ({ setShowPostMenu }){
             Gmail:user.email,
             UID:user.uid
         };
-        postUserPost(post);
+        addDoc(collection(db , 'posts'), post);
         console.log(post);
         setShowPostMenu(false);
         toast.success('Posted!', {position: toast.POSITION.TOP_LEFT});
