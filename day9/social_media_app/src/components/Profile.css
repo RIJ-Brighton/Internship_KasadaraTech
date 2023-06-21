@@ -49,3 +49,14 @@
     margin-top: 10%;
     width: 50vw;
 }
+
+.your-posts{
+    overflow-x: auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.your-quotes{
+    margin-top: 10%;
+}

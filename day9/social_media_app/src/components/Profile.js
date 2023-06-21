@@ -1,6 +1,6 @@
 import { useUserAuth } from '../context/UserAuthContext';
 import { setDoc , doc } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../firebase'; 
 import { onSnapshot , collection } from 'firebase/firestore';
 
 import { useNavigate } from 'react-router-dom';
@@ -17,12 +17,13 @@ import Card from './Card';
 
 export default function Profile(){
 
-    const { logOut, currentUsername , isUsernameExists , user } = useUserAuth();
+    const { logOut, currentUsername , isUsernameExists , user , changeProfile , currentUserProfile } = useUserAuth();
     
     const profile = currentUsername?.charAt(0).toUpperCase();
-    const src = localStorage.getItem('profile');
 
     const [ newUsername , setNewUsername ] = useState('');
+    const [ image , setImage ] = useState(null);
+    const [ showChangeProfile , setShowChangeProfile ] = useState(false);
     const [ showChangeUsername , setShowChangeUsername ] = useState(false);
     const [ posts , setPosts ] = useState([]);
 
@@ -61,6 +62,23 @@ export default function Profile(){
         })
     }
 
+    const updateProfile = (e) => {
+      e.preventDefault();
+      if(image){
+        //image error handling
+        if(image.name.includes('.png') || image.name.includes('.jpeg') || image.name.includes('.jpg')){
+          changeProfile(image);
+          setImage(null);
+          setShowChangeProfile(false);
+        }
+        else{
+          toast.error('Choose png or jpeg', {position: toast.POSITION.TOP_LEFT});
+        }
+      }
+      else
+        toast.warn('Choose an Image', {position: toast.POSITION.TOP_LEFT});
+    }
+
     return (
        <>
        {showChangeUsername && <div className='create-post' >
@@ -78,12 +96,34 @@ export default function Profile(){
           </form>
         </div>
         }
+        
+        {/* change profile */}
+
+        {showChangeProfile && <div className='create-post' >
+          <h3>Change Profile</h3>
+          <FontAwesomeIcon icon={faTimes} className='clear-btn' onClick={() => {
+              setImage(null);
+              setShowChangeProfile(false);
+            }}/>
+          <form className='ip-form' onSubmit={updateProfile}>
+            <div className='input-div'>
+              <input type="file" className='title-area' onChange={e => { setImage(e.target.files[0]) }} /><br/>
+            </div>
+            <br/>
+            <button className='submit-btn' type="submit">Change</button>  
+          </form>
+        </div>
+        }
        <div className="home">
         <div className="top-left">
           <h2 className='Quoteogram' >Hello, {currentUsername}</h2>
         </div>
         <div className="top-right">
-          {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }
+
+          {/* profile pic */}
+          {!currentUserProfile ? <div className="profile" onClick={()=>setShowChangeProfile(true)}>{profile}</div> : 
+          <img src={currentUserProfile} className='profile' onClick={()=>setShowChangeProfile(true)} alt='profile' /> }
+          
           <FontAwesomeIcon  className='user-profile' icon={faEdit} onClick={() => {
             setShowChangeUsername(true);
           }}/>
@@ -97,9 +137,11 @@ export default function Profile(){
         </div>
         </div>
       <ToastContainer/>
-      <div className='Posts'>
-        <h2>Your Quotes</h2>
-        { posts.map(post => post.UID === user.uid ? <Card key={post.id} title={post.Title} Quote={post.Quote} id={post.id} /> : <></> )}
+      <div>
+        <h2 className='your-quotes'>Your Quotes</h2>
+        <div className='your-posts'>
+          { posts.map(post => post.UID === user.uid ? <Card key={post.id+user.uid} title={post.Title} Quote={post.Quote} id={post.id} /> : <></> )}
+        </div>
       </div>
        </>
     );

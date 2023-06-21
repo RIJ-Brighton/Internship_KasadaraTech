@@ -9,7 +9,8 @@ import {
     signInWithPopup
  } from 'firebase/auth'
 import { onSnapshot , collection , setDoc , doc } from 'firebase/firestore';
-import { auth , db } from '../firebase';
+import { ref , uploadBytes , getDownloadURL } from 'firebase/storage';
+import { auth , db , storage } from '../firebase';
 
 const userAuthContext = createContext();
 
@@ -18,6 +19,7 @@ export function UseAuthContextProvider( { children } ){
     const navigate = useNavigate();
     const [ user , setUser ] = useState({});
     const [ currentUsername , setCurrentUsername ] = useState('');
+    const [ currentUserProfile , setCurrentUserProfile ] = useState(null);
     const [ allUsers , setAllUsers ] = useState([]);
 
     useEffect(() => {
@@ -26,8 +28,8 @@ export function UseAuthContextProvider( { children } ){
             setUser(cur);
             cur ? navigate('/home') : navigate('/')  
 
-            //username
             if(cur){
+                //username
                 onSnapshot(collection(db , 'Users'), (snapshot) => {
                     snapshot.docs.forEach(usr => {
                         if(usr.id === cur.uid){
@@ -37,6 +39,14 @@ export function UseAuthContextProvider( { children } ){
                     })
                 }, (error) => {
                     console.log('USERS fetch error:', error);
+                });
+
+                //profile
+                const imgRef = ref(storage , `Profiles/${cur.uid}`);
+                getDownloadURL(imgRef).then((url) => {
+                    setCurrentUserProfile(url);
+                }).catch(() => {
+                    console.log('DOWNLOAD ERROR');
                 });
             }
         });
@@ -87,6 +97,20 @@ export function UseAuthContextProvider( { children } ){
     function logOut(){
         return signOut(auth);
     }
+
+    function changeProfile(image){
+        console.log(image);
+        const imgRef = ref(storage , `Profiles/${user.uid}`);
+        uploadBytes(imgRef , image).then(() => {
+            getDownloadURL(imgRef).then((url) => {
+                setCurrentUserProfile(url);
+            }).catch(() => {
+                console.log('DOWNLOAD ERROR');
+            })
+        }).catch(()=>{
+            console.log("UPLOAD ERROR");
+        })
+      }
     
     function isUsernameExists(username){
         var exists = false;
@@ -100,7 +124,7 @@ export function UseAuthContextProvider( { children } ){
         return exists;
     }
 
-    return <userAuthContext.Provider value={{logIn, signUp, logOut, signInWithGoogle, isUsernameExists, user, allUsers, currentUsername}}>{children}</userAuthContext.Provider>
+    return <userAuthContext.Provider value={{logIn, signUp, logOut, signInWithGoogle, isUsernameExists, changeProfile, user, allUsers, currentUsername, currentUserProfile}}>{children}</userAuthContext.Provider>
 }
 
 export function useUserAuth(){

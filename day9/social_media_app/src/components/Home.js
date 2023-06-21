@@ -19,12 +19,11 @@ import ComposeUI from './ComposeUI';
 export default function Home() {
 
 
-  const { logOut , user , currentUsername } = useUserAuth();
+  const { logOut , user , currentUsername , currentUserProfile } = useUserAuth();
   const navigate = useNavigate();
 
   const gmail = user.email;
   const profile = currentUsername?.charAt(0).toUpperCase();
-  const src = localStorage.getItem('profile');
 
   const [ showPostMenu , setShowPostMenu ] = useState(false);
 
@@ -50,7 +49,7 @@ export default function Home() {
           <h2 className='Quoteogram' >Quote-O-gram</h2>
         </div>
         <div className="top-right">
-          {!src ? <div className="profile">{profile}</div> : <img src={src} className='profile' alt='profile' /> }
+          {!currentUserProfile ? <div className="profile">{profile}</div> : <img src={currentUserProfile} className='profile' alt='profile' /> }
           <FontAwesomeIcon className='user-profile' icon={faUser} onClick={ () => {
               navigate('/profile');
             }
