@@ -1,60 +1,97 @@
-.animation, .animation_layer {
-	height: 1000px;
+@import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400; 500;600; 700; 800; 900&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-.animation {
-  display: block;
-	position: relative;
-	z-index: 10;
+body {
+  background: #f9f9f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.animation_layer {
-	background-position: bottom center;
-	background-size: auto 1038px;
-	background-repeat: repeat-x;
-	width: 100%;
-	position: absolute;
-}
-.animation_layer.parallax {
-	position: fixed;
-}
-
-#hill1{
-  background-image: url(./asserts/homePage/hill1.png);
-  background-size: cover;
+header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 100;
 }
 
-#hill2{
-  background-size: cover;
-  background-image: url(./asserts/homePage/hill2.png);
+.logo {
+  font-size: 2em;
+  color: #359381;
+  pointer-events: none;
+  margin-right: 270px;
 }
 
-#hill3{
-  background-size: cover;
-  background-image: url(./asserts/homePage/hill3.png);
+.navigation a {
+  text-decoration: none;
+  color: #359381; 
+  padding: 6px 15px; 
+  border-radius: 20px; 
+  margin: 0 10px;
+  font-weight: 600;
 }
 
-#hill4{
-  background-size: cover;
-  background-image: url(./asserts/homePage/hill4.png);
+.navigation a:hover{
+  background: #359381;
+  color: #ffff;
 }
 
-#hill5{
-  background-size: cover;
-  background-image: url(./asserts/homePage/hill5.png);
+.parallax{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-#leaf{
-  background-size: cover;
-  background-image: url(./asserts/homePage/leaf.png);
+#text{
+  position: absolute;
+  font-size: 5em;
+  color: #ffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-#tree{
-  background-size: cover;
-  background-image: url(./asserts/homePage/tree.png);
+.parallax img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
 }
 
-#plant{
-  background-size: cover;
-  background-image: url(./asserts/homePage/plant.png);
+.sec{
+  position: relative;
+  background-color: #003329;
+  padding: 100px;
+}
+
+.sec h2{
+  font-size: 3em;
+  color: #ffff;
+  margin-bottom: 10px;
+}
+
+.sec p{
+  font-size: 1em;
+  color: #ffff;
+  font-weight: 300;
+}
+
+.sec ul{
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  color: #ffff;
+  font-weight: 300;
 }
