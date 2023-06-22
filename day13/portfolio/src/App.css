@@ -1,15 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:wght@300;400; 500;600; 700; 800; 900&display=swap');
 
-@media screen and (orientation: portrait) {
-  html {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    height: 100vw;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
+@media screen and (orientation: portrait){
+  .App {
+    display: none;
   }
 }
 
@@ -39,19 +32,40 @@ header{
   z-index: 100;
 }
 
+@media screen and (max-width: 766px) {
+  .logo{
+    font-size: 2em;
+    margin-right: 2vw;
+  }
+  .navigation a {
+    color: #2cb098; 
+    padding: 3px 7px; 
+    border-radius: 10px; 
+    margin: 0 5px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .logo{
+    font-size: 3em;
+    margin-right: 25vw;
+  }
+  .navigation a {
+    padding: 6px 15px; 
+    color: #359381; 
+    border-radius: 20px; 
+    margin: 0 10px;
+  }
+}
+
 .logo {
-  font-size: 2em;
+  font-weight: 600;
   color: #359381;
   pointer-events: none;
-  margin-right: 30vw;
 }
 
 .navigation a {
   text-decoration: none;
-  color: #359381; 
-  padding: 6px 15px; 
-  border-radius: 20px; 
-  margin: 0 10px;
   font-weight: 600;
 }
 
