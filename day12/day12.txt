@@ -1,3 +1,7 @@
-10:50 - x:xx -> {
-    setting and updating profile picture of users
+10:50 - 12:50 -> {
+    UI changes
 } 
+
+4:00 - 5:50 -> {
+    setting and updating profile picture of users
+}
