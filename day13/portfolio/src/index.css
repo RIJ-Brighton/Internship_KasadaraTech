@@ -3,17 +3,22 @@ body{
 }
 
 .outer-wrapper{
-  overflow-y: scroll;
-  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
+
+  scrollbar-width: none;
+  -ms-overflow-style: auto;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
 
 .wrapper{
   display: flex;
-  flex-direction: row;
-  width: 300vw;
-  /* transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left; */
+  flex-direction: column;
+  height: 300vh;
 }
 
 .page{
