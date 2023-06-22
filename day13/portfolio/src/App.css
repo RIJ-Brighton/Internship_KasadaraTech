@@ -1,0 +1,60 @@
+.animation, .animation_layer {
+	height: 1000px;
+}
+
+.animation {
+  display: block;
+	position: relative;
+	z-index: 10;
+}
+
+.animation_layer {
+	background-position: bottom center;
+	background-size: auto 1038px;
+	background-repeat: repeat-x;
+	width: 100%;
+	position: absolute;
+}
+.animation_layer.parallax {
+	position: fixed;
+}
+
+#hill1{
+  background-image: url(./asserts/homePage/hill1.png);
+  background-size: cover;
+}
+
+#hill2{
+  background-size: cover;
+  background-image: url(./asserts/homePage/hill2.png);
+}
+
+#hill3{
+  background-size: cover;
+  background-image: url(./asserts/homePage/hill3.png);
+}
+
+#hill4{
+  background-size: cover;
+  background-image: url(./asserts/homePage/hill4.png);
+}
+
+#hill5{
+  background-size: cover;
+  background-image: url(./asserts/homePage/hill5.png);
+}
+
+#leaf{
+  background-size: cover;
+  background-image: url(./asserts/homePage/leaf.png);
+}
+
+#tree{
+  background-size: cover;
+  background-image: url(./asserts/homePage/tree.png);
+}
+
+#plant{
+  background-size: cover;
+  background-image: url(./asserts/homePage/plant.png);
+}
