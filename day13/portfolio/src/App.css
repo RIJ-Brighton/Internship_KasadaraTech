@@ -20,10 +20,50 @@
 }
 
 body {
-  background: #f9f9f9;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 14%, rgba(53,147,129,1) 22%, rgba(0,51,41,1) 38%, rgba(0,51,41,1) 74%, rgba(53,147,129,1) 84%, rgba(255,255,255,1) 91%);
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+/* //laptops */
+@media screen and (min-width : 1000px) {
+  header{
+    margin: 20px;
+    padding: 30px 50px;
+    width: 25vw;
+  }
+  .navigation a {
+    padding: 6px 15px;  
+    border-radius: 20px; 
+    margin: 0 10px;
+  }
+  #text{
+    font-size: 5em;
+    position: absolute;
+    color: #ffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }  
+}
+
+/* mobile */
+@media screen and (orientation:landscape) and (min-width : 730px) and (max-width : 851px){
+  header{
+    margin: 10px;
+    padding: 10px 10px;
+  }
+  .navigation a {
+    padding: 3px 7px; 
+    border-radius: 10px; 
+    margin: 0 5px;
+  }
+  #text{
+    font-size: 2em;
+    position: absolute;
+    color: #ffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
 }
 
 header{
@@ -32,11 +72,9 @@ header{
   backdrop-filter: blur(10px);
   top: 0;
   left: 0;
-  width: 100%;
-  padding: 30px 100px;
+  border-radius: 70px;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   z-index: 100;
 }
 
@@ -44,33 +82,8 @@ header{
   z-index: 110;
 }
 
-@media screen and (max-width: 766px) {
-  .logo{
-    font-size: 2em;
-    margin-right: 2vw;
-  }
-  .navigation a {
-    color: #2cb098; 
-    padding: 3px 7px; 
-    border-radius: 10px; 
-    margin: 0 5px;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .logo{
-    font-size: 3em;
-    margin-right: 25vw;
-  }
-  .navigation a {
-    padding: 6px 15px; 
-    color: #359381; 
-    border-radius: 20px; 
-    margin: 0 10px;
-  }
-}
-
 .navigation a {
+  color: #359381;
   text-decoration: none;
   font-weight: 600;
 }
@@ -88,13 +101,6 @@ header{
   height: 100vh;
 }
 
-#text{
-  position: absolute;
-  font-size: 5em;
-  color: #ffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 .parallax img{
   position: absolute;
   top: 0;
@@ -104,10 +110,9 @@ header{
 }
 
 /* about mobile*/
-@media screen and (max-width: 766px){
+@media screen and (orientation:landscape) and (min-width : 730px) and (max-width : 851px){
   .sec{
     position: relative;
-    background-color: #003329;
     padding: 100px;
   }
   
@@ -139,10 +144,9 @@ header{
 }
 
 /* about desktop */
-@media screen and (min-width: 800px){
+@media screen and (min-width : 1000px) {
   .sec{
     position: relative;
-    background-color: #003329;
     margin-top: 5%;
     padding: 100px;
     height: 100vh;
@@ -182,7 +186,6 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #003329;
 }
 
 .tagcloud {
@@ -204,11 +207,27 @@ header{
 }
 
 .skills{
-  background-color: #003329;
   height: 100vh;
 }
 
 .contact{
-  background-color: #003329;
+  position: relative;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
   height: 100vh;
+}
+
+.contact h2{
+  font-size: 3em;
+  color: #ffff;
+  margin-bottom: 20px;
+}
+
+.contact img{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
 }

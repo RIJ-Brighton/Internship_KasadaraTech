@@ -21,13 +21,11 @@ const TextSphere = () => {
       "Python",
       "JAVA",
       "Linux",
-      "IoT",
-      "Networking",
-      "Pen Testing"
+      "IoT"
     ];
     const options = {
       radius: r,
-      maxSpeed: "normal",
+      maxSpeed: "fast",
       initSpeed: "normal",
       keep: true,
       loop: true,

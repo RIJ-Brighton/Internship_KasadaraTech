@@ -11,6 +11,8 @@ export default function App() {
   const leaf = useRef(null);
   const text = useRef(null);
 
+  const leafContact = useRef(null);
+
   useEffect(() => {
     const onScroll = () => {
       let value = window.scrollY;
@@ -84,13 +86,16 @@ export default function App() {
       </section>
       {/* Skills */}
       <section className='sec skills' ref={Skills}>
-        <h2>Skills</h2>
+        <h2>Skills</h2><hr/>
         <TextSphere/>
       </section>
 
       {/* Contact */}
       <section className='sec contact' ref={Contact}>
         <h2>Contact</h2>
+        <img src={require('./asserts/homePage/tree.png')} id='tree' alt='hill'/>
+        <img src={require('./asserts/homePage/leaf.png')} id='leaf' ref={leafContact} alt='hill'/>
+        <img src={require('./asserts/homePage/plant.png')} id='plant' alt='hill'/>
       </section>
     </div>
   );
