@@ -26,7 +26,7 @@ const TextSphere = () => {
     const options = {
       radius: r,
       maxSpeed: "fast",
-      initSpeed: "normal",
+      initSpeed: "fast",
       keep: true,
       loop: true,
       lockX: true,
