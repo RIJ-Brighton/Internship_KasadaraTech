@@ -177,7 +177,7 @@ header{
 .text-sphere {
   position: relative;
   /* top: 0; */
-  width: 100%;
+  width: 50vw;
   height: 50vh;
   display: flex;
   justify-content: center;
