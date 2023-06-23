@@ -7,7 +7,7 @@ const TextSphere = () => {
   useEffect(() => {
     const container = containerRef.current;
     let width = window.screen.width;
-    let r = 100;
+    let r = 150;
     if(width > 800)
         r = 300;
     const texts = [
