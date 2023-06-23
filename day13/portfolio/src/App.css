@@ -209,6 +209,16 @@ header{
 }
 
 .contact{
-  background-color: #003329;
+  background-color: #ffff;
+  position: relative;
+  color: #2cb098;
   height: 100vh;
+}
+
+.contact img{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  pointer-events: none;
 }

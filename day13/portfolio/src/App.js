@@ -91,6 +91,9 @@ export default function App() {
       {/* Contact */}
       <section className='sec contact' ref={Contact}>
         <h2>Contact</h2>
+        <img src={require('./asserts/homePage/tree.png')} id='tree' alt='hill'/>
+        <img src={require('./asserts/homePage/leaf.png')} id='leaf' ref={leaf} alt='hill'/>
+        <img src={require('./asserts/homePage/plant.png')} id='plant' alt='hill'/>
       </section>
     </div>
   );
