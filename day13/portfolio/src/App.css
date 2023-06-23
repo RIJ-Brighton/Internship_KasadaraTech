@@ -104,10 +104,10 @@ header{
 }
 
 /* about mobile*/
-@media screen and (max-width: 766px){
+@media screen and (max-width: 740px){
   .sec{
-    position: relative;
     background-color: #003329;
+    position: relative;
     padding: 100px;
   }
   
@@ -141,8 +141,8 @@ header{
 /* about desktop */
 @media screen and (min-width: 800px){
   .sec{
-    position: relative;
     background-color: #003329;
+    position: relative;
     margin-top: 5%;
     padding: 100px;
     height: 100vh;
@@ -176,13 +176,12 @@ header{
 
 .text-sphere {
   position: relative;
-  /* top: 0; */
+  top: 0;
   width: 50vw;
   height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #003329;
 }
 
 .tagcloud {
@@ -204,15 +203,17 @@ header{
 }
 
 .skills{
-  background-color: #003329;
   height: 100vh;
 }
 
 .contact{
   background-color: #ffff;
   position: relative;
-  color: #2cb098;
   height: 100vh;
+}
+
+.contact h2{
+  color:#2cb098
 }
 
 .contact img{

@@ -9,7 +9,6 @@ export default function App() {
   const hill4 = useRef(null);
   const hill5 = useRef(null);
   const leaf = useRef(null);
-  const leafContact = useRef(null);
   const text = useRef(null);
 
   useEffect(() => {
@@ -85,7 +84,7 @@ export default function App() {
       </section>
       {/* Skills */}
       <section className='sec skills' ref={Skills}>
-        <h2>Skills</h2>
+        <h2>Skills</h2><hr/>
         <TextSphere/>
       </section>
 
@@ -93,7 +92,6 @@ export default function App() {
       <section className='sec contact' ref={Contact}>
         <h2>Contact</h2>
         <img src={require('./asserts/homePage/tree.png')} id='tree' alt='hill'/>
-        <img src={require('./asserts/homePage/leaf.png')} id='leaf' ref={leafContact} alt='hill'/>
         <img src={require('./asserts/homePage/plant.png')} id='plant' alt='hill'/>
       </section>
     </div>
