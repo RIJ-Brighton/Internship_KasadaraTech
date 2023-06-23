@@ -304,6 +304,7 @@ header{
 }
 
 .contact_us_green .social-svg {
+  color: #f9f9f9;
   width: 35px;
   height: 35px;
 }
@@ -385,7 +386,7 @@ header{
 .contact_us_green .submit-btn {
   min-width: 290px;
   height: 60px;
-  background-color: #1c3b28;
+  background-color: #2cb098;
   font-size: 18px;
   font-weight: 700;
   color: white;

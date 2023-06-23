@@ -71,7 +71,7 @@ export default function App() {
       </section>
       {/* About */}
       <section className='sec about' ref={About}>
-        <h2>About me</h2> <hr/>
+        <h2>About me</h2>
         <p>
           <h3>I am Brighton</h3> 
           <h3>Software Developer</h3><br/>
@@ -86,109 +86,100 @@ export default function App() {
       </section>
       {/* Skills */}
       <section className='sec skills' ref={Skills}>
-        <h2>Skills</h2><hr/>
+        <h2>Skills</h2><br/>
         <TextSphere/>
       </section>
 
       {/* Contact */}
       <section className='sec contact' ref={Contact}>
-      <div class="contact_us_green">
-        <div class="responsive-container-block big-container">
-          <div class="responsive-container-block container">
-            <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-7 wk-ipadp-10 line" id="i69b-2">
-              <form class="form-box">
-                <div class="container-block form-wrapper">
-                  <div class="head-text-box">
-                    <p class="text-blk contactus-head">
+      <div className="contact_us_green">
+        <div className="responsive-container-block big-container">
+          <div className="responsive-container-block container">
+            <div className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-7 wk-ipadp-10 line" id="i69b-2">
+              <form className="form-box">
+                <div className="container-block form-wrapper">
+                  <div className="head-text-box">
+                    <p className="text-blk contactus-head">
                       Contact me
                     </p>
-                    <p class="text-blk contactus-subhead">
+                    <p className="text-blk contactus-subhead">
                       Get in touch with me
                     </p>
                   </div>
-                  <div class="responsive-container-block">
-                    <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6" id="i10mt-6">
-                      <p class="text-blk input-title">
+                  <div className="responsive-container-block">
+                    <div className="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6" id="i10mt-6">
+                      <p className="text-blk input-title">
                         FIRST NAME
                       </p>
-                      <input class="input" id="ijowk-6" name="FirstName"/>
+                      <input className="input" id="ijowk-6" name="FirstName"/>
                     </div>
-                    <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-                      <p class="text-blk input-title">
+                    <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                      <p className="text-blk input-title">
                         LAST NAME
                       </p>
-                      <input class="input" id="indfi-4" name="Last Name"/>
+                      <input className="input" id="indfi-4" name="Last Name"/>
                     </div>
-                    <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-                      <p class="text-blk input-title">
+                    <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                      <p className="text-blk input-title">
                         EMAIL
                       </p>
-                      <input class="input" id="ipmgh-6" name="Email"/>
+                      <input className="input" id="ipmgh-6" name="Email"/>
                     </div>
-                    <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-                      <p class="text-blk input-title">
+                    <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                      <p className="text-blk input-title">
                         PHONE NUMBER
                       </p>
-                      <input class="input" id="imgis-5" name="PhoneNumber"/>
+                      <input className="input" id="imgis-5" name="PhoneNumber"/>
                     </div>
-                    <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-6">
-                      <p class="text-blk input-title">
+                    <div className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-6">
+                      <p className="text-blk input-title">
                         WHAT DO YOU HAVE IN MIND
                       </p>
-                      <textarea class="textinput" id="i5vyy-6"></textarea>
+                      <textarea className="textinput" id="i5vyy-6"></textarea>
                     </div>
                   </div>
-                  <div class="btn-wrapper">
-                    <button class="submit-btn">
+                  <div className="btn-wrapper">
+                    <button className="submit-btn">
                       Submit
                     </button>
                   </div>
                 </div>
               </form>
             </div>
-            <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-5 wk-ipadp-10" id="ifgi">
-              <div class="container-box">
-                <div class="text-content">
-                  <p class="text-blk contactus-head">
+            <div className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-5 wk-ipadp-10" id="ifgi">
+              <div className="container-box">
+                <div className="text-content">
+                  <p className="text-blk contactus-head">
                     Contact me
                   </p>
-                  <p class="text-blk contactus-subhead">
+                  <p className="text-blk contactus-subhead">
                     Get in touch with me  
                   </p>
                 </div>
-                <div class="workik-contact-bigbox">
-                  <div class="workik-contact-box">
-                    <div class="phone text-box">
-                      <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET21.jpg"/>
-                      <p class="contact-text">
+                <div className="workik-contact-bigbox">
+                  <div className="workik-contact-box">
+                    <div className="phone text-box">
+                      <img className="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET21.jpg"/>
+                      <p className="contact-text">
                         8438087292
                       </p>
                     </div>
-                    <div class="address text-box">
-                      <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET22.jpg"/>
-                      <p class="contact-text">
+                    <div className="address text-box">
+                      <img className="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET22.jpg"/>
+                      <p className="contact-text">
                         rijbrighton@gmail.com
                       </p>
                     </div>
-                    <div class="mail text-box">
-                      <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET23.jpg"/>
-                      <p class="contact-text">
+                    <div className="mail text-box">
+                      <img className="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET23.jpg"/>
+                      <p className="contact-text">
                         Tirunelveli, Tamilnadu
                       </p>
                     </div>
                   </div>
-                  <div class="social-media-links">
-                    <a href="">
-                      <img class="social-svg" id="is9ym" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-mail.svg"/>
-                    </a>
-                    <a href="">
-                      <img class="social-svg" id="i706n" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-twitter.svg"/>
-                    </a>
-                    <a href="">
-                      <img class="social-svg" id="ib9ve" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-insta.svg"/>
-                    </a>
-                    <a href="">
-                      <img class="social-svg" id="ie9fx" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-fb.svg"/>
+                  <div className="social-media-links">
+                    <a href="https://github.com/Jackxzyte">
+                    <FontAwesomeIcon icon={faGithub} className="social-svg" />
                     </a>
                   </div>
                 </div>
