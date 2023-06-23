@@ -68,7 +68,7 @@ export default function App() {
         <img src={require('./asserts/homePage/plant.png')} id='plant' alt='hill'/>
       </section>
       {/* About */}
-      <section className='sec' ref={About}>
+      <section className='sec about' ref={About}>
         <h2>About me</h2>
         <p>
           I am Brighton, <br/><br/>
@@ -82,15 +82,15 @@ export default function App() {
         </p>
       </section>
       {/* Skills */}
-      <div className='skills' ref={Skills}>
-        <h1>Skills</h1>
+      <section className='sec skills' ref={Skills}>
+        <h2>Skills</h2>
         <TextSphere/>
-      </div>
+      </section>
 
       {/* Contact */}
-      <div className='contact' ref={Contact}>
-        <h1>Contact</h1>
-      </div>
+      <section className='sec contact' ref={Contact}>
+        <h2>Contact</h2>
+      </section>
     </div>
   );
 }

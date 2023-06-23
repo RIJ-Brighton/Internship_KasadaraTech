@@ -28,6 +28,8 @@ body {
 
 header{
   position: fixed;
+  background-color: rgba(31, 184, 146, 0.2);
+  backdrop-filter: blur(10px);
   top: 0;
   left: 0;
   width: 100%;
@@ -36,6 +38,10 @@ header{
   justify-content: flex-start;
   align-items: center;
   z-index: 100;
+}
+
+#leaf{
+  z-index: 110;
 }
 
 @media screen and (max-width: 766px) {
@@ -101,7 +107,6 @@ header{
   position: relative;
   background-color: #003329;
   padding: 100px;
-  height: 500px;
 }
 
 .sec h2{
@@ -153,10 +158,14 @@ header{
   color: rgb(24, 143, 107);
 }
 
+.about{
+  height: 100vh;
+}
+
 .skills{
-  height: 500px;
+  height: 100vh;
 }
 
 .contact{
-  height: 500px;
+  height: 100vh;
 }
