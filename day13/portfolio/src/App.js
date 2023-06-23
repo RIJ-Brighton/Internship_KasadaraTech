@@ -100,10 +100,10 @@ export default function App() {
                 <div class="container-block form-wrapper">
                   <div class="head-text-box">
                     <p class="text-blk contactus-head">
-                      Contact us
+                      Contact me
                     </p>
                     <p class="text-blk contactus-subhead">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna al iqua. Ut enim
+                      Get in touch with me
                     </p>
                   </div>
                   <div class="responsive-container-block">
@@ -135,7 +135,7 @@ export default function App() {
                       <p class="text-blk input-title">
                         WHAT DO YOU HAVE IN MIND
                       </p>
-                      <textarea class="textinput" id="i5vyy-6" placeholder="Please enter query..."></textarea>
+                      <textarea class="textinput" id="i5vyy-6"></textarea>
                     </div>
                   </div>
                   <div class="btn-wrapper">
@@ -150,10 +150,10 @@ export default function App() {
               <div class="container-box">
                 <div class="text-content">
                   <p class="text-blk contactus-head">
-                    Contact us
+                    Contact me
                   </p>
                   <p class="text-blk contactus-subhead">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna al iqua. Ut enim
+                    Get in touch with me  
                   </p>
                 </div>
                 <div class="workik-contact-bigbox">
@@ -161,19 +161,19 @@ export default function App() {
                     <div class="phone text-box">
                       <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET21.jpg"/>
                       <p class="contact-text">
-                        +1258 3258 5679
+                        8438087292
                       </p>
                     </div>
                     <div class="address text-box">
                       <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET22.jpg"/>
                       <p class="contact-text">
-                        hello@workik.com
+                        rijbrighton@gmail.com
                       </p>
                     </div>
                     <div class="mail text-box">
                       <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET23.jpg"/>
                       <p class="contact-text">
-                        102 street, y cross 485656
+                        Tirunelveli, Tamilnadu
                       </p>
                     </div>
                   </div>
