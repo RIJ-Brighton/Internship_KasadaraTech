@@ -69,17 +69,20 @@ export default function App() {
       </section>
       {/* About */}
       <section className='sec about' ref={About}>
-        <h2>About me</h2>
-        <p>
-          I am Brighton, <br/><br/>
-          a 19 years old who's a college student pursuing B.Tech IT at FXEC <br/><br/>
-          My hobbies are :
-          <ul>
-            <li>Learning to exploit vulnerabilities</li>
-            <li>Playing Guitar</li>
-            <li>Watching anime</li>
-          </ul>
-        </p>
+        <div className='about-content'>
+          <h2>About me</h2><br/><br/><br/>
+          <h2 className='span'>Hi , I am Brighton</h2>
+          <h4>Software Engineer</h4>
+          <p>
+            a 19 years old who's a college student pursuing B.Tech IT at FXEC <br/><br/>
+            with hobbies like ,
+            <ul>
+              <li>Learning to exploit vulnerabilities</li>
+              <li>Playing Guitar</li>
+              <li>Watching anime</li>
+            </ul>
+          </p>
+          </div>
       </section>
       {/* Skills */}
       <section className='sec skills' ref={Skills}>

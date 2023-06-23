@@ -20,7 +20,10 @@ const TextSphere = () => {
       "C++",
       "Python",
       "JAVA",
-      "Linux"
+      "Linux",
+      "IoT",
+      "Networking",
+      "Pen Testing"
     ];
     const options = {
       radius: r,
