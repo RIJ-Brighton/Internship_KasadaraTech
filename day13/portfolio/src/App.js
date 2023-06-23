@@ -1,8 +1,10 @@
 import './App.css';
 import { useEffect , useState , useRef } from 'react';
+import TextSphere from './TextSphere';
 
 export default function App() {
 
+  //home page images
   const hill1 = useRef(null);
   const hill4 = useRef(null);
   const hill5 = useRef(null);
@@ -17,7 +19,7 @@ export default function App() {
       leaf.current.style.left = value * 1.5 + 'px';
       hill4.current.style.left = value * -1.5 + 'px';
       hill5.current.style.left = value * 1.5 + 'px';
-      hill1.current.style.top = (value * 1.5 < 760) ? (value * 1.5 + 'px') : '760px';
+      hill1.current.style.top = (value * 1.5 < 160) ? (value * 1.5 + 'px') : '160px';
     }
       
     window.addEventListener('scroll', onScroll);
@@ -27,19 +29,34 @@ export default function App() {
     }
   }, []);
 
+  //pages
+  const Home = useRef(null);
+  const About = useRef(null);
+  const Skills = useRef(null);
+  const Contact = useRef(null);
+
+
+  const handleButtonClick = (ref , e) => {
+    e.preventDefault();
+    console.log(ref.current.offsetTop);
+    window.scrollTo({
+      top : ref.current.offsetTop,
+      behavior : 'smooth'
+    })
+  };
+
   return (
     <div className="App" >
       <header>
-        <h2 className='logo' >Hello</h2>
         <nav className='navigation' >
-          <a href='#' >Home</a>
-          <a href='#' >About me</a>
-          <a href='#' >Known Tech Stack</a>
-          <a href='#' >Contact</a>
+          <a href='#' onClick={(e) => handleButtonClick(Home , e)}>Home</a>
+          <a href='#' onClick={(e) => handleButtonClick(About , e)}>About</a>
+          <a href='#' onClick={(e) => handleButtonClick(Skills , e)}>Skills</a>
+          <a href='#' onClick={(e) => handleButtonClick(Contact , e)}>Contact</a>
         </nav>
       </header>
-
-      <section className='parallax' >
+      {/* home */}
+      <section className='parallax' ref={Home}>
         <img src={require('./asserts/homePage/hill1.png')} id='hill1' ref={hill1} alt='hill'/>
         <img src={require('./asserts/homePage/hill2.png')} id='hill2' alt='hill'/>
         <img src={require('./asserts/homePage/hill3.png')} id='hill3' alt='hill'/>
@@ -50,8 +67,8 @@ export default function App() {
         <img src={require('./asserts/homePage/leaf.png')} id='leaf' ref={leaf} alt='hill'/>
         <img src={require('./asserts/homePage/plant.png')} id='plant' alt='hill'/>
       </section>
-
-      <section className='sec'>
+      {/* About */}
+      <section className='sec' ref={About}>
         <h2>About me</h2>
         <p>
           I am Brighton, <br/><br/>
@@ -64,6 +81,16 @@ export default function App() {
           </ul>
         </p>
       </section>
+      {/* Skills */}
+      <div className='skills' ref={Skills}>
+        <h1>Skills</h1>
+        <TextSphere/>
+      </div>
+
+      {/* Contact */}
+      <div className='contact' ref={Contact}>
+        <h1>Contact</h1>
+      </div>
     </div>
   );
 }
