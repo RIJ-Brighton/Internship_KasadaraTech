@@ -9,7 +9,7 @@ const addNewTask = async (req , res) => {
         const tasks = await taskModel.create({taskTitle , taskStatus})
         res.status(201).json(tasks)
     }catch(e){
-        res.status(500).json({error:e.message})
+        res.status(400).json({error:e.message})
     }
 }
 
@@ -17,7 +17,7 @@ const addNewTask = async (req , res) => {
 const getAllTasks = async (req , res) => {
     try{
         const tasks = await taskModel.find({}).sort({crearedAt:1})
-        res.status(201).json(tasks)
+        res.status(200).json(tasks)
     }catch(e){
         res.status(500).json({error:e.message})
     }
@@ -34,7 +34,7 @@ const getTaskByID = async (req , res) => {
         if(!task)
             res.status(404).json({error:'Task isnt found'})
         else
-            res.status(201).json(task)
+            res.status(200).json(task)
     }catch(e){
         res.status(500).json({error:e.message})
     }
