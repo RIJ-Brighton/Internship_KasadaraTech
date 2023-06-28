@@ -1,0 +1,1 @@
+added realtime updation of UI after new posts or deletions using Reducer

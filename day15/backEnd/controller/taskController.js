@@ -51,7 +51,7 @@ const deleteTaskByID = async (req , res) => {
         if(!deletedTask)
             res.status(500).json({error:'Task cant be deleted'})
         else
-            res.status(201).json(deletedTask)
+            res.status(200).json(deletedTask)
     }catch(e){
         res.status(500).json({error:e.message})
     }

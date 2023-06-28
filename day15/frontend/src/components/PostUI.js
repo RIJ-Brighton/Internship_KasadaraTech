@@ -1,10 +1,12 @@
 import { useState } from "react"
 import axios from 'axios'
+import { useTaskContext } from '../context/TaskContext';
 
 export default function PostUI() {
   
     const [ title , setTitle ] = useState('')
     const [ postError , setPostError ] = useState('')
+    const { dispatch } = useTaskContext();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,6 +20,7 @@ export default function PostUI() {
                 setPostError('')
                 setTitle('')
                 console.log('res code',res.status,'Posted')
+                dispatch({type:'Post', payload:res.data})
             }else if(res.status === 400){
                 setPostError('Error',res)
             }

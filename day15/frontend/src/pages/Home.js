@@ -3,25 +3,26 @@ import axios from 'axios';
 
 import Task from '../components/Task';
 import PostUI from '../components/PostUI';
+import { useTaskContext } from '../context/TaskContext';
 //includes
 
 export default function Home() {
 
-  const [ tasks , setTasks ] = useState([])
+  const { tasks , dispatch } = useTaskContext();
   const [ getAllError , setGetAllError ] = useState('')
 
   useEffect(() => {
     axios.get('http://localhost:4000/api/tasks/').then((res) => {
       if(res.status === 200){
         setGetAllError('')
-        setTasks(res.data)
+        dispatch({ type:'Fetch' , payload:res.data})
       }else if(res.status === 500){
         setGetAllError('Error')
       }
     }).catch((e) => {
       setGetAllError(e)
     })
-  } , [])
+  } , [dispatch])
 
   return (
     <div className='home'>
