@@ -4,6 +4,7 @@ import axios from 'axios';
 import Task from '../components/Task';
 import PostUI from '../components/PostUI';
 import { useTaskContext } from '../context/TaskContext';
+import { Box, Container, Stack, Typography } from '@mui/material';
 //includes
 
 export default function Home() {
@@ -25,12 +26,25 @@ export default function Home() {
   } , [dispatch])
 
   return (
-    <div className='home'>
-        <div className='tasks'>
+    <Container maxWidth='xl'>
+      <Stack direction='row' spacing={2} justifyContent='space-between' >
+        
+        <Box flex={2} borderRadius={10} border={'solid'} padding={2}>
+          <Typography variant='h5' padding={2}>Assigned</Typography>
+          <Stack direction='column' spacing={2}>
           {tasks && tasks.map(task => <Task key={task._id} task={task} /> )}
+          </Stack>
           {getAllError && getAllError}
-        </div>
-        <PostUI />
-    </div>
+        </Box>
+
+        <Box flex={2} borderRadius={10} border={'solid'} padding={2}>
+          <Typography variant='h5' padding={2}>Completed</Typography>
+          <Stack direction='column' spacing={2}>
+          </Stack>
+        </Box>
+        
+        <PostUI/>
+      </Stack>
+    </Container>
   )
 }
