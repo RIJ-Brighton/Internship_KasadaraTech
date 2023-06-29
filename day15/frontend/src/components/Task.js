@@ -5,7 +5,6 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { Box, Button, Card, CardContent, Typography, CardMedia } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import  Send from '@mui/icons-material/Send';
-import NorthIcon from '@mui/icons-material/North';
 //imports
 
 export default function Task({ task }) {
@@ -32,17 +31,17 @@ export default function Task({ task }) {
     <Card className='task-card' draggable>
 
     <Box>
-      <Box sx={{ display: 'flex',justifyContent:'space-between' }} maxWidth='sm'>
+      <Box sx={{ display: 'flex',justifyContent:'space-between' }}>
         <CardContent>
-          <Typography component="div" variant="h5" > {task.taskTitle} </Typography>
-          <Typography variant="subtitle1" color="text.secondary" component="div"> <strong>Priority : </strong> <NorthIcon sx={{marginTop:'5px'}}/> </Typography>
+          <Typography component="div" variant="h5" sx={{maxWidth:'20vw',overflowX:'auto'}}> {task.taskTitle} </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div"> <strong>Priority : </strong> {task.taskPriority} </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div"> {formatDistanceToNow(new Date(task.createdAt) , {addSuffix:true})} </Typography>
         </CardContent>
 
         <CardMedia
           component="img"
           sx={{ width: 151 }}
-          image="https://img.freepik.com/free-vector/isolated-tree-white-background_1308-24265.jpg?w=996&t=st=1687957581~exp=1687958181~hmac=718bdd5e9b4ccf0d29e6e8576f22b01586d20c8d3ceeec5da88cdc0e232cdc5a"
+          image={task.taskImg}
           alt="Task Image"
           flex={1}
         />

@@ -4,9 +4,9 @@ const mongoose = require('mongoose')
 
 //add new task
 const addNewTask = async (req , res) => {
-    const { taskTitle , taskStatus } = req.body
+    const { taskTitle , taskPriority , taskStatus , taskImg } = req.body
     try{
-        const tasks = await taskModel.create({taskTitle , taskStatus})
+        const tasks = await taskModel.create({taskTitle , taskPriority , taskStatus , taskImg})
         res.status(201).json(tasks)
     }catch(e){
         res.status(400).json({error:e.message})
