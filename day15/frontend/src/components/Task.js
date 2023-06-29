@@ -29,7 +29,7 @@ export default function Task({ task }) {
   }
 
   return (
-    <Card>
+    <Card className='task-card' draggable>
 
     <Box>
       <Box sx={{ display: 'flex',justifyContent:'space-between' }} maxWidth='sm'>
