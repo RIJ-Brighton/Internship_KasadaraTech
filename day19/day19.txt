@@ -1,0 +1,5 @@
+Learning about authorization and authentication
+Learnt to use JWT
+
+cerating new model and schema for user along with endpoints for signup and login in backend
+creating login / signup UI in frontend along with authContext to keep track of user auth

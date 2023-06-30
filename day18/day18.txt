@@ -1,0 +1,3 @@
+Learning MUI
+
+Rewriting UI of the task manager app to use MUI components instead of classic css
