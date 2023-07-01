@@ -11,9 +11,9 @@ const userRoutes = require('./routes/users')
 const app = express()
 
 //middleware
-app.use(cors({
-    origin:'http://localhost:3000' 
-}))
+app.use(cors(
+    {origin:'http://localhost:3000' }
+))
 app.use(express.json()) //req body
 app.use((req , res , next) => {
     console.log(req.path , req.method)

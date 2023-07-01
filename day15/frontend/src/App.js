@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import { Box, ThemeProvider, createTheme } from '@mui/material';
 import { useState } from 'react';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
 
@@ -25,6 +26,9 @@ function App() {
             </Routes>
             <Routes>
               <Route path='/login' element={<Login/>} />
+            </Routes>
+            <Routes>
+              <Route path='/signup' element={<Signup/>} />
             </Routes>
         </BrowserRouter>
     </Box>
