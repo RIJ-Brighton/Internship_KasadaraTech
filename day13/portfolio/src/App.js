@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect , useState , useRef } from 'react';
 import TextSphere from './TextSphere';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub , faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function App() {
 
@@ -158,12 +158,12 @@ export default function App() {
                 </div>
                 <div className="workik-contact-bigbox">
                   <div className="workik-contact-box">
-                    <div className="phone text-box">
+                    {/* <div className="phone text-box">
                       <img className="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET21.jpg"/>
                       <p className="contact-text">
                         8438087292
                       </p>
-                    </div>
+                    </div> */}
                     <div className="address text-box">
                       <img className="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET22.jpg"/>
                       <p className="contact-text">
@@ -180,6 +180,10 @@ export default function App() {
                   <div className="social-media-links">
                     <a href="https://github.com/RIJ-Brighton">
                     <FontAwesomeIcon icon={faGithub} className="social-svg" />
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/rijbrighton/">
+                    <FontAwesomeIcon icon={faLinkedin} className="social-svg" />
                     </a>
                   </div>
                 </div>
