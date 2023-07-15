@@ -178,7 +178,7 @@ export default function App() {
                     </div>
                   </div>
                   <div className="social-media-links">
-                    <a href="https://github.com/Jackxzyte">
+                    <a href="https://github.com/RIJ-Brighton">
                     <FontAwesomeIcon icon={faGithub} className="social-svg" />
                     </a>
                   </div>
