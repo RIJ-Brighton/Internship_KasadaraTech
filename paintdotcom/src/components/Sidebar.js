@@ -19,6 +19,7 @@ export default function Sidebar() {
             <Drawer open={sideBar} onClose={() => setSideBar(false)}>
                <Stack spacing={2} sx={{width:"25vw"}}>
                   <Item>Home</Item>
+                  <Item>Products</Item>
                   <Item>About</Item>
                </Stack>
             </Drawer>
