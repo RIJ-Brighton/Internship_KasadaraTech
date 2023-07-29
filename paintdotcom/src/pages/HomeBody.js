@@ -38,7 +38,7 @@ export default function Home(){
                         <Box sx={{top:"0",right:"0",textAlign:"center",backdropFilter:("5px"),background:"#1f3d4738",borderRadius:"15px"}}>
                             <Typography component="div" color="text.secondary" variant='h4'><strong>{obj.title}</strong></Typography>
                             <Box key={index} sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-                                <img className='showcase' src={obj.url} alt='Brush Showcase'/>
+                                <img style={{borderTopRightRadius:"20px",borderTopLeftRadius:"20px"}}className='showcase' src={obj.url} alt='Brush Showcase'/>
                             </Box>
                         </Box>
                     </Paper>
