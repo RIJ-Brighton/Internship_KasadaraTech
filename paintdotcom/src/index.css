@@ -1,11 +1,17 @@
-/* @media screen and (orientation: portrait){
-    .root {
-      display: none;
-    }
-  }
-  
-  @media screen and (orientation: landscape){
-    #Warn{
-      display: none;
-    }
-  } */
+.slideimages{
+    background-size: cover;
+    height:400px;
+    border-radius:20px;
+
+}
+@media screen and (max-width: 768px) {
+.slideimages{
+    background-size: cover;
+    height:120px;
+    width:278px;
+    border-radius:20px;
+}
+}
+::-webkit-scrollbar {
+    display: none;
+}

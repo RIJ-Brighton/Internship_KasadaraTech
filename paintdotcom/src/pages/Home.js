@@ -31,7 +31,7 @@ function App() {
           <Parallax/>
         <Box sx={{zIndex:"5"}}>  
             <Stack sx={{position:"relative",justifyContent:"center",alignItems:"center"}} pt={10}>
-                <Box sx={{width:{xs:"100vw",md:"50vw"},borderRadius:"20px"}} ClassName="slidebar">
+                <Box sx={{width:{xs:"100vw",md:"50vw"} ,height:{xs:"50vh"},borderRadius:"20px"}} ClassName="slidebar">
                     <Slidebar/>
                 </Box>
             </Stack>
