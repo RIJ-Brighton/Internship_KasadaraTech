@@ -5,29 +5,22 @@ body{
 }
 
 @media screen and (orientation: portrait){
-  .App {
-    display: none;
+  .parallax_imgs {
+    margin-top: 10%;
+    top: 1;
+    left: 0;
   }
 }
 
 @media screen and (orientation: landscape){
-  #Warn{
-    display: none;
+  .parallax_imgs {
+    top: 0;
+    left: 0;
   }
 }
 
-.parallax{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.parallax img{
+.parallax_imgs{
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  width: 100vw;
   pointer-events: none;
 }

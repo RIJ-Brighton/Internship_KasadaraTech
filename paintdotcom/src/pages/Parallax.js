@@ -1,6 +1,6 @@
 import './Parallax.css';
 import { useEffect ,useRef } from 'react';
-import { Typography } from '@mui/material';
+import { Typography , Box } from '@mui/material';
 
 export default function Home() {
 
@@ -25,13 +25,19 @@ export default function Home() {
   }, []);
 
   return (
-    <section className='parallax'>
-      <img style={{zIndex:"10"}} src={require('../assets/brush_left.png')} id='hill4'   ref={hill4} alt='hill'/>
-      <img src={require('../assets/brush_right.png')} id='hill5' ref={hill5} alt='hill'/>
-      <Typography sx={{textAlign:"center",zIndex:"1"}} color="text.primary" variant='h1' ref={text}>
+    <Box sx={{
+      position:"relative",
+      display:"flex",
+      justifyContent:"center",
+      alignItems:"center",
+      height:"100vh",
+      }}>
+      <img className="parallax_imgs" style={{zIndex:"10"}} src={require('../assets/brush_left.png')} id='hill4'   ref={hill4} alt='hill'/>
+      <img className="parallax_imgs" src={require('../assets/brush_right.png')} id='hill5' ref={hill5} alt='hill'/>
+      <Typography sx={{textAlign:"center",zIndex:"1",fontSize:{xs:"3rem",md:"7rem"}}} color="text.primary" variant='h1' ref={text}>
         <strong>XYC Brushes</strong>
-        <Typography color="text.primary" variant='h3'>Quality over Quantity</Typography>
+        <Typography color="text.primary" sx={{fontSize:{xs:"0rem",md:"4rem"}}}variant='h3'>Quality over Quantity</Typography>
       </Typography>
-    </section>
+    </Box>
   );
 }
